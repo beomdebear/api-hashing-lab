@@ -1,0 +1,2 @@
+﻿"run_id","sample_id","sha256","pid","started_utc","finished_utc","exit_code","expected_exit","timeout","marker_exists","marker_content_ok","correctness_pass","collector_status","build_id"
+"20261103-081929-608-P1-1","P1","DDFB2A2903D6D63C822831BF8650B57F56A2CAA710585154BF14DBE46E04B215","6260","2026-11-03T01:19:29.6404498Z","2026-11-03T01:19:29.7340414Z","0","0","False","True","True","True","not_collected","20261103-081901-822"
