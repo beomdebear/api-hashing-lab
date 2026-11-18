@@ -1,0 +1,114 @@
+{
+  "schema": "tv2-static-features/1.0",
+  "extractor": {
+    "name": "tv2-static-extractor",
+    "version": "1.0.1",
+    "config_sha256": "C4651F3D9BDF0B70AC55609445DE15ADD436DCC05BE408172EF2CADB545450CB",
+    "code_sha256": "F2FED07E22120CEB2686C64454B4A63ED7021B3671F10BCE69AFF8FB1A87E451",
+    "capstone": "6.0.0"
+  },
+  "sample": {
+    "sha256": "DB3DFE10506040C7CF7FFF47EB9C18CC8AA58F7AA7E270323B56DF2284031771",
+    "size": 12288
+  },
+  "analysis": {
+    "status": "unsupported",
+    "detail": "unsupported machine=0x14c optional_magic=0x20b",
+    "functions": 0,
+    "incomplete": []
+  },
+  "pe": null,
+  "features": {
+    "f.imports.get_proc_address": {
+      "kind": "observation",
+      "status": "unknown",
+      "value": null,
+      "evidence": []
+    },
+    "f.imports.loader_apis": {
+      "kind": "observation",
+      "status": "unknown",
+      "value": null,
+      "evidence": []
+    },
+    "f.code.hash_like_loops": {
+      "kind": "observation",
+      "status": "unknown",
+      "value": null,
+      "evidence": []
+    },
+    "f.code.non_import_indirect_calls": {
+      "kind": "observation",
+      "status": "unknown",
+      "value": null,
+      "evidence": []
+    },
+    "f.code.get_proc_address_calls": {
+      "kind": "observation",
+      "status": "unknown",
+      "value": null,
+      "evidence": []
+    },
+    "f.resolve.constant_names": {
+      "kind": "observation",
+      "status": "unknown",
+      "value": null,
+      "evidence": []
+    },
+    "f.resolve.dynamic_name_calls": {
+      "kind": "observation",
+      "status": "unknown",
+      "value": null,
+      "evidence": []
+    },
+    "rel.export_names_enumerated": {
+      "kind": "relation",
+      "status": "unknown",
+      "value": null,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.export_name_to_hash": {
+      "kind": "relation",
+      "status": "unknown",
+      "value": null,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.hash_to_compare": {
+      "kind": "relation",
+      "status": "unknown",
+      "value": null,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.compare_to_name_selection": {
+      "kind": "relation",
+      "status": "unknown",
+      "value": null,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.selection_to_resolve": {
+      "kind": "relation",
+      "status": "unknown",
+      "value": null,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.resolve_to_pointer_use": {
+      "kind": "relation",
+      "status": "unknown",
+      "value": null,
+      "detail": "",
+      "evidence": []
+    }
+  },
+  "content_sha256": "D371635C54C9AF27E6627620EABFDD8B11BB7312BB3876FB4433C7702CAAC911",
+  "run": {
+    "analysis_id": "A-20261118T033702481103Z-DB3DFE10",
+    "generated_at": "2026-11-18T03:37:02+00:00",
+    "duration_ms": 0.5,
+    "input_path": "synthetic-wrong-machine-P1.bin"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "run_id": "R-20261118T031328Z-probe-1.0.1",
+  "split": "probe",
+  "ground_truth_sha256": "3D02C47C308A7B6D82B8565D4BB2814846BC19BC6C0ED3B2967450E6AA5253D0",
+  "label_status": "provisional, proposed by TV2, not approved by TV4",
+  "detectors": {
+    "d0": {
+      "samples_total": 5,
+      "analysis_succeeded": 3,
+      "counts": {
+        "TP": 3,
+        "TN": 1,
+        "FP": 1,
+        "FN": 0,
+        "UNKNOWN": 0
+      },
+      "precision": 0.75,
+      "recall": 1.0,
+      "f1": 0.8571,
+      "worst_case": {
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1": 0.8571
+      },
+      "analysis_ms": {
+        "median": 147.6,
+        "max": 2465.6
+      }
+    },
+    "static-only": {
+      "samples_total": 5,
+      "analysis_succeeded": 3,
+      "counts": {
+        "TP": 2,
+        "TN": 1,
+        "FP": 0,
+        "FN": 0,
+        "UNKNOWN": 2
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "worst_case": {
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "f1": 0.6667
+      },
+      "analysis_ms": {
+        "median": 147.6,
+        "max": 2465.6
+      }
+    }
+  }
+}

@@ -1,0 +1,467 @@
+{
+  "schema": "tv2-static-features/1.0",
+  "extractor": {
+    "name": "tv2-static-extractor",
+    "version": "1.0.1",
+    "config_sha256": "C4651F3D9BDF0B70AC55609445DE15ADD436DCC05BE408172EF2CADB545450CB",
+    "code_sha256": "F2FED07E22120CEB2686C64454B4A63ED7021B3671F10BCE69AFF8FB1A87E451",
+    "capstone": "6.0.0"
+  },
+  "sample": {
+    "sha256": "9D9F49C84A60E6297DED31BDE8CF0D34870607EDD58D8FA2FF4D9F2A4618B472",
+    "size": 12288
+  },
+  "analysis": {
+    "status": "ok",
+    "detail": "",
+    "functions": 79,
+    "incomplete": []
+  },
+  "pe": {
+    "machine": 34404,
+    "image_base": 5368709120,
+    "entry_rva": 6800,
+    "sections": [
+      {
+        "name": ".text",
+        "rva": 4096,
+        "virtual_size": 5596,
+        "raw_offset": 1024,
+        "raw_size": 5632,
+        "executable": true
+      },
+      {
+        "name": ".rdata",
+        "rva": 12288,
+        "virtual_size": 3866,
+        "raw_offset": 6656,
+        "raw_size": 4096,
+        "executable": false
+      },
+      {
+        "name": ".data",
+        "rva": 16384,
+        "virtual_size": 1856,
+        "raw_offset": 10752,
+        "raw_size": 512,
+        "executable": false
+      },
+      {
+        "name": ".pdata",
+        "rva": 20480,
+        "virtual_size": 456,
+        "raw_offset": 11264,
+        "raw_size": 512,
+        "executable": false
+      },
+      {
+        "name": ".reloc",
+        "rva": 24576,
+        "virtual_size": 48,
+        "raw_offset": 11776,
+        "raw_size": 512,
+        "executable": false
+      }
+    ],
+    "imports": [
+      "KERNEL32.dll!FreeLibrary",
+      "KERNEL32.dll!GetCurrentProcess",
+      "KERNEL32.dll!GetCurrentProcessId",
+      "KERNEL32.dll!GetCurrentThreadId",
+      "KERNEL32.dll!GetLastError",
+      "KERNEL32.dll!GetModuleHandleW",
+      "KERNEL32.dll!GetProcAddress",
+      "KERNEL32.dll!GetSystemTimeAsFileTime",
+      "KERNEL32.dll!InitializeSListHead",
+      "KERNEL32.dll!IsDebuggerPresent",
+      "KERNEL32.dll!IsProcessorFeaturePresent",
+      "KERNEL32.dll!LoadLibraryW",
+      "KERNEL32.dll!QueryPerformanceCounter",
+      "KERNEL32.dll!RtlCaptureContext",
+      "KERNEL32.dll!RtlLookupFunctionEntry",
+      "KERNEL32.dll!RtlVirtualUnwind",
+      "KERNEL32.dll!SetUnhandledExceptionFilter",
+      "KERNEL32.dll!TerminateProcess",
+      "KERNEL32.dll!UnhandledExceptionFilter",
+      "VCRUNTIME140.dll!__C_specific_handler",
+      "VCRUNTIME140.dll!__current_exception",
+      "VCRUNTIME140.dll!__current_exception_context",
+      "VCRUNTIME140.dll!memchr",
+      "VCRUNTIME140.dll!memcpy",
+      "VCRUNTIME140.dll!memset",
+      "api-ms-win-crt-heap-l1-1-0.dll!_set_new_mode",
+      "api-ms-win-crt-locale-l1-1-0.dll!_configthreadlocale",
+      "api-ms-win-crt-math-l1-1-0.dll!__setusermatherr",
+      "api-ms-win-crt-runtime-l1-1-0.dll!__p___argc",
+      "api-ms-win-crt-runtime-l1-1-0.dll!__p___argv",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_c_exit",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_cexit",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_configure_narrow_argv",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_crt_atexit",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_exit",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_get_initial_narrow_environment",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_initialize_narrow_environment",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_initialize_onexit_table",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_initterm",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_initterm_e",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_register_onexit_function",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_register_thread_local_exe_atexit_callback",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_seh_filter_exe",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_set_app_type",
+      "api-ms-win-crt-runtime-l1-1-0.dll!exit",
+      "api-ms-win-crt-runtime-l1-1-0.dll!terminate",
+      "api-ms-win-crt-stdio-l1-1-0.dll!__acrt_iob_func",
+      "api-ms-win-crt-stdio-l1-1-0.dll!__p__commode",
+      "api-ms-win-crt-stdio-l1-1-0.dll!__stdio_common_vfprintf",
+      "api-ms-win-crt-stdio-l1-1-0.dll!_set_fmode"
+    ]
+  },
+  "features": {
+    "f.imports.get_proc_address": {
+      "kind": "observation",
+      "status": "present",
+      "value": true,
+      "evidence": [
+        {
+          "function_rva": null,
+          "rva": 12304,
+          "va": 5368721424,
+          "file_offset": 6672,
+          "text": "KERNEL32.dll!GetProcAddress",
+          "note": "import address table slot"
+        }
+      ]
+    },
+    "f.imports.loader_apis": {
+      "kind": "observation",
+      "status": "present",
+      "value": [
+        "GetModuleHandleW",
+        "LoadLibraryW"
+      ],
+      "evidence": []
+    },
+    "f.code.hash_like_loops": {
+      "kind": "observation",
+      "status": "present",
+      "value": 1,
+      "evidence": [
+        {
+          "function_rva": 4096,
+          "rva": 4127,
+          "va": 5368713247,
+          "file_offset": 1055,
+          "text": "movzx eax, byte ptr [rax]",
+          "note": "byte load inside loop"
+        },
+        {
+          "function_rva": 4096,
+          "rva": 4223,
+          "va": 5368713343,
+          "file_offset": 1151,
+          "text": "shr eax, 1",
+          "note": "mixing instruction inside loop"
+        },
+        {
+          "function_rva": 4096,
+          "rva": 4145,
+          "va": 5368713265,
+          "file_offset": 1073,
+          "text": "xor ecx, eax",
+          "note": "combining instruction inside loop"
+        },
+        {
+          "function_rva": 4096,
+          "rva": 4234,
+          "va": 5368713354,
+          "file_offset": 1162,
+          "text": "jmp 0x14000101a",
+          "note": "loop back edge"
+        }
+      ]
+    },
+    "f.code.non_import_indirect_calls": {
+      "kind": "observation",
+      "status": "present",
+      "value": 6,
+      "evidence": [
+        {
+          "function_rva": 5168,
+          "rva": 5617,
+          "va": 5368714737,
+          "file_offset": 2545,
+          "text": "call qword ptr [rsp + 0x68]",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 5168,
+          "rva": 5696,
+          "va": 5368714816,
+          "file_offset": 2624,
+          "text": "call qword ptr [rsp + 0x70]",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 5168,
+          "rva": 5709,
+          "va": 5368714829,
+          "file_offset": 2637,
+          "text": "call qword ptr [rsp + 0x78]",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 6420,
+          "rva": 6614,
+          "va": 5368715734,
+          "file_offset": 3542,
+          "text": "call qword ptr [rip + 0x17fc]",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 8612,
+          "rva": 8646,
+          "va": 5368717766,
+          "file_offset": 5574,
+          "text": "call qword ptr [rip + 0x100c]",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 8672,
+          "rva": 8706,
+          "va": 5368717826,
+          "file_offset": 5634,
+          "text": "call qword ptr [rip + 0xfd0]",
+          "note": "indirect call whose target is not an import slot"
+        }
+      ]
+    },
+    "f.code.get_proc_address_calls": {
+      "kind": "observation",
+      "status": "present",
+      "value": 1,
+      "evidence": [
+        {
+          "function_rva": 5024,
+          "rva": 5105,
+          "va": 5368714225,
+          "file_offset": 2033,
+          "text": "call qword ptr [rip + 0x1c19]",
+          "note": "call through the import slot of GetProcAddress"
+        }
+      ]
+    },
+    "f.resolve.constant_names": {
+      "kind": "observation",
+      "status": "absent",
+      "value": [],
+      "evidence": []
+    },
+    "f.resolve.dynamic_name_calls": {
+      "kind": "observation",
+      "status": "present",
+      "value": 1,
+      "evidence": [
+        {
+          "kind": "selected_name_resolved",
+          "function_rva": 5024,
+          "rva": 5105,
+          "va": 5368714225,
+          "file_offset": 2033,
+          "text": "call qword ptr [rip + 0x1c19]",
+          "note": "hash-selected export name is passed to GetProcAddress"
+        },
+        {
+          "kind": "export_name_resolved",
+          "function_rva": 5024,
+          "rva": 5105,
+          "va": 5368714225,
+          "file_offset": 2033,
+          "text": "call qword ptr [rip + 0x1c19]",
+          "note": "export-name pointer is passed to GetProcAddress"
+        }
+      ]
+    },
+    "rel.export_names_enumerated": {
+      "kind": "relation",
+      "status": "verified",
+      "value": true,
+      "detail": "export directory -> AddressOfNames -> module base + name RVA",
+      "evidence": [
+        {
+          "kind": "export_directory_read",
+          "function_rva": 4336,
+          "rva": 4566,
+          "va": 5368713686,
+          "file_offset": 1494,
+          "text": "mov rax, qword ptr [rcx + rax + 0x88]",
+          "note": "read of NT headers +0x88 (PE32+ export directory RVA)"
+        },
+        {
+          "kind": "export_names_field_read",
+          "function_rva": 4336,
+          "rva": 4655,
+          "va": 5368713775,
+          "file_offset": 1583,
+          "text": "cmp dword ptr [rax + 0x20], 0",
+          "note": "read of export directory +0x20 (AddressOfNames)"
+        },
+        {
+          "kind": "export_names_field_read",
+          "function_rva": 4336,
+          "rva": 4686,
+          "va": 5368713806,
+          "file_offset": 1614,
+          "text": "mov ecx, dword ptr [rax + 0x20]",
+          "note": "read of export directory +0x20 (AddressOfNames)"
+        },
+        {
+          "kind": "export_names_field_read",
+          "function_rva": 4336,
+          "rva": 4713,
+          "va": 5368713833,
+          "file_offset": 1641,
+          "text": "mov eax, dword ptr [rax + 0x20]",
+          "note": "read of export directory +0x20 (AddressOfNames)"
+        },
+        {
+          "kind": "export_name_rva_read",
+          "function_rva": 4336,
+          "rva": 4789,
+          "va": 5368713909,
+          "file_offset": 1717,
+          "text": "mov ecx, dword ptr [rcx + rax*4]",
+          "note": "indexed read from AddressOfNames"
+        },
+        {
+          "kind": "export_name_rva_read",
+          "function_rva": 4336,
+          "rva": 4820,
+          "va": 5368713940,
+          "file_offset": 1748,
+          "text": "mov eax, dword ptr [rcx + rax*4]",
+          "note": "indexed read from AddressOfNames"
+        },
+        {
+          "kind": "export_name_rva_read",
+          "function_rva": 4336,
+          "rva": 4848,
+          "va": 5368713968,
+          "file_offset": 1776,
+          "text": "mov eax, dword ptr [rcx + rax*4]",
+          "note": "indexed read from AddressOfNames"
+        },
+        {
+          "kind": "export_name_pointer",
+          "function_rva": 4336,
+          "rva": 4828,
+          "va": 5368713948,
+          "file_offset": 1756,
+          "text": "add rcx, rax",
+          "note": "module base + name RVA gives an export-name pointer"
+        }
+      ]
+    },
+    "rel.export_name_to_hash": {
+      "kind": "relation",
+      "status": "verified",
+      "value": true,
+      "detail": "export-name bytes reach a mixing loop",
+      "evidence": [
+        {
+          "kind": "export_name_hashed",
+          "function_rva": 4336,
+          "rva": 4893,
+          "va": 5368714013,
+          "file_offset": 1821,
+          "text": "call 0x140001000",
+          "note": "export-name pointer passed to hash-like function at RVA 0x1000"
+        }
+      ]
+    },
+    "rel.hash_to_compare": {
+      "kind": "relation",
+      "status": "verified",
+      "value": true,
+      "detail": "hash of export name compared with a function argument",
+      "evidence": [
+        {
+          "kind": "hash_compared",
+          "function_rva": 4336,
+          "rva": 4898,
+          "va": 5368714018,
+          "file_offset": 1826,
+          "text": "cmp eax, dword ptr [rsp + 0x78]",
+          "note": "hash of export name compared with a function argument"
+        }
+      ]
+    },
+    "rel.compare_to_name_selection": {
+      "kind": "relation",
+      "status": "verified",
+      "value": true,
+      "detail": "the name pointer is assigned in a block control-dependent on the hash comparison",
+      "evidence": [
+        {
+          "kind": "name_selected_by_hash",
+          "function_rva": 4336,
+          "rva": 4934,
+          "va": 5368714054,
+          "file_offset": 1862,
+          "text": "mov rcx, qword ptr [rsp + 0x58]",
+          "note": "export-name pointer is assigned only when the hash comparison selects it"
+        },
+        {
+          "kind": "name_selected_by_hash",
+          "function_rva": 4336,
+          "rva": 4939,
+          "va": 5368714059,
+          "file_offset": 1867,
+          "text": "mov qword ptr [rax], rcx",
+          "note": "export-name pointer is assigned only when the hash comparison selects it"
+        }
+      ]
+    },
+    "rel.selection_to_resolve": {
+      "kind": "relation",
+      "status": "verified",
+      "value": true,
+      "detail": "the selected name is the GetProcAddress name argument",
+      "evidence": [
+        {
+          "kind": "selected_name_resolved",
+          "function_rva": 5024,
+          "rva": 5105,
+          "va": 5368714225,
+          "file_offset": 2033,
+          "text": "call qword ptr [rip + 0x1c19]",
+          "note": "hash-selected export name is passed to GetProcAddress"
+        }
+      ]
+    },
+    "rel.resolve_to_pointer_use": {
+      "kind": "relation",
+      "status": "verified",
+      "value": true,
+      "detail": "the resolved address is the target of an indirect call",
+      "evidence": [
+        {
+          "kind": "resolved_pointer_called",
+          "function_rva": 5168,
+          "rva": 5617,
+          "va": 5368714737,
+          "file_offset": 2545,
+          "text": "call qword ptr [rsp + 0x68]",
+          "note": "call target is API(SEL)"
+        }
+      ]
+    }
+  },
+  "content_sha256": "33E53357F3B1F998A3A93BF96BA6337E7A3EA9B19987441B4B6AB456905D5E51",
+  "run": {
+    "analysis_id": "A-20261118T031327647748Z-9D9F49C8",
+    "generated_at": "2026-11-18T03:13:27+00:00",
+    "duration_ms": 136.7,
+    "input_path": "input/S-9D9F49C84A.bin",
+    "run_id": "R-20261118T031327Z-test-1.0.1"
+  }
+}

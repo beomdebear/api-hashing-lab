@@ -1,0 +1,114 @@
+{
+  "schema": "tv2-static-features/1.0",
+  "extractor": {
+    "name": "tv2-static-extractor",
+    "version": "1.0.1",
+    "config_sha256": "C4651F3D9BDF0B70AC55609445DE15ADD436DCC05BE408172EF2CADB545450CB",
+    "code_sha256": "F2FED07E22120CEB2686C64454B4A63ED7021B3671F10BCE69AFF8FB1A87E451",
+    "capstone": "6.0.0"
+  },
+  "sample": {
+    "sha256": "7C6287E21878C3E2ABDAA61279EAD26D0CB1AC12359B95F3BD8E5B8ECAA7BCF3",
+    "size": 384
+  },
+  "analysis": {
+    "status": "error",
+    "detail": "read outside file at offset 0x180",
+    "functions": 0,
+    "incomplete": []
+  },
+  "pe": null,
+  "features": {
+    "f.imports.get_proc_address": {
+      "kind": "observation",
+      "status": "analysis_error",
+      "value": null,
+      "evidence": []
+    },
+    "f.imports.loader_apis": {
+      "kind": "observation",
+      "status": "analysis_error",
+      "value": null,
+      "evidence": []
+    },
+    "f.code.hash_like_loops": {
+      "kind": "observation",
+      "status": "analysis_error",
+      "value": null,
+      "evidence": []
+    },
+    "f.code.non_import_indirect_calls": {
+      "kind": "observation",
+      "status": "analysis_error",
+      "value": null,
+      "evidence": []
+    },
+    "f.code.get_proc_address_calls": {
+      "kind": "observation",
+      "status": "analysis_error",
+      "value": null,
+      "evidence": []
+    },
+    "f.resolve.constant_names": {
+      "kind": "observation",
+      "status": "analysis_error",
+      "value": null,
+      "evidence": []
+    },
+    "f.resolve.dynamic_name_calls": {
+      "kind": "observation",
+      "status": "analysis_error",
+      "value": null,
+      "evidence": []
+    },
+    "rel.export_names_enumerated": {
+      "kind": "relation",
+      "status": "analysis_error",
+      "value": null,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.export_name_to_hash": {
+      "kind": "relation",
+      "status": "analysis_error",
+      "value": null,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.hash_to_compare": {
+      "kind": "relation",
+      "status": "analysis_error",
+      "value": null,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.compare_to_name_selection": {
+      "kind": "relation",
+      "status": "analysis_error",
+      "value": null,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.selection_to_resolve": {
+      "kind": "relation",
+      "status": "analysis_error",
+      "value": null,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.resolve_to_pointer_use": {
+      "kind": "relation",
+      "status": "analysis_error",
+      "value": null,
+      "detail": "",
+      "evidence": []
+    }
+  },
+  "content_sha256": "69198D14C2BC469D5F0AAB16A25221C9597C74DD16A0BA6E555F3055FB5CC816",
+  "run": {
+    "analysis_id": "A-20261118T033702480103Z-7C6287E2",
+    "generated_at": "2026-11-18T03:37:02+00:00",
+    "duration_ms": 0.5,
+    "input_path": "synthetic-truncated-P1.bin"
+  }
+}

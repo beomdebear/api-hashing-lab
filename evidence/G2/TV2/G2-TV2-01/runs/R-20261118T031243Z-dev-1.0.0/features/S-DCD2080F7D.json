@@ -1,0 +1,269 @@
+{
+  "schema": "tv2-static-features/1.0",
+  "extractor": {
+    "name": "tv2-static-extractor",
+    "version": "1.0.0",
+    "config_sha256": "E8B9125C4309BCC409B0FCBBD7F379277FB258C640C9E5301B5F95BA83784484",
+    "code_sha256": "150CF1B95DAFCA0B95348D2EF45CD1D14F3BF6C06EEF5D5F3667486BDDD86169",
+    "capstone": "6.0.0"
+  },
+  "sample": {
+    "sha256": "DCD2080F7D406A4DD64845079D4389D6CEAAC7524B57111129DA9C507EFFF539",
+    "size": 10752
+  },
+  "analysis": {
+    "status": "ok",
+    "detail": "",
+    "functions": 69,
+    "incomplete": []
+  },
+  "pe": {
+    "machine": 34404,
+    "image_base": 5368709120,
+    "entry_rva": 5224,
+    "sections": [
+      {
+        "name": ".text",
+        "rva": 4096,
+        "virtual_size": 3644,
+        "raw_offset": 1024,
+        "raw_size": 4096,
+        "executable": true
+      },
+      {
+        "name": ".rdata",
+        "rva": 8192,
+        "virtual_size": 3672,
+        "raw_offset": 5120,
+        "raw_size": 4096,
+        "executable": false
+      },
+      {
+        "name": ".data",
+        "rva": 12288,
+        "virtual_size": 432,
+        "raw_offset": 9216,
+        "raw_size": 512,
+        "executable": false
+      },
+      {
+        "name": ".pdata",
+        "rva": 16384,
+        "virtual_size": 348,
+        "raw_offset": 9728,
+        "raw_size": 512,
+        "executable": false
+      },
+      {
+        "name": ".reloc",
+        "rva": 20480,
+        "virtual_size": 44,
+        "raw_offset": 10240,
+        "raw_size": 512,
+        "executable": false
+      }
+    ],
+    "imports": [
+      "KERNEL32.dll!CloseHandle",
+      "KERNEL32.dll!CreateFileW",
+      "KERNEL32.dll!GetCurrentProcessId",
+      "KERNEL32.dll!GetCurrentThreadId",
+      "KERNEL32.dll!GetModuleHandleW",
+      "KERNEL32.dll!GetSystemTimeAsFileTime",
+      "KERNEL32.dll!InitializeSListHead",
+      "KERNEL32.dll!IsDebuggerPresent",
+      "KERNEL32.dll!IsProcessorFeaturePresent",
+      "KERNEL32.dll!QueryPerformanceCounter",
+      "KERNEL32.dll!RtlCaptureContext",
+      "KERNEL32.dll!RtlLookupFunctionEntry",
+      "KERNEL32.dll!RtlVirtualUnwind",
+      "KERNEL32.dll!SetUnhandledExceptionFilter",
+      "KERNEL32.dll!UnhandledExceptionFilter",
+      "KERNEL32.dll!WriteFile",
+      "VCRUNTIME140.dll!__C_specific_handler",
+      "VCRUNTIME140.dll!__current_exception",
+      "VCRUNTIME140.dll!__current_exception_context",
+      "VCRUNTIME140.dll!memcpy",
+      "VCRUNTIME140.dll!memset",
+      "api-ms-win-crt-heap-l1-1-0.dll!_set_new_mode",
+      "api-ms-win-crt-locale-l1-1-0.dll!_configthreadlocale",
+      "api-ms-win-crt-math-l1-1-0.dll!__setusermatherr",
+      "api-ms-win-crt-runtime-l1-1-0.dll!__p___argc",
+      "api-ms-win-crt-runtime-l1-1-0.dll!__p___argv",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_c_exit",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_cexit",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_configure_narrow_argv",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_crt_atexit",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_exit",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_get_initial_narrow_environment",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_initialize_narrow_environment",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_initialize_onexit_table",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_initterm",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_initterm_e",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_register_onexit_function",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_register_thread_local_exe_atexit_callback",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_seh_filter_exe",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_set_app_type",
+      "api-ms-win-crt-runtime-l1-1-0.dll!exit",
+      "api-ms-win-crt-runtime-l1-1-0.dll!terminate",
+      "api-ms-win-crt-stdio-l1-1-0.dll!__acrt_iob_func",
+      "api-ms-win-crt-stdio-l1-1-0.dll!__p__commode",
+      "api-ms-win-crt-stdio-l1-1-0.dll!__stdio_common_vfprintf",
+      "api-ms-win-crt-stdio-l1-1-0.dll!_set_fmode"
+    ]
+  },
+  "features": {
+    "f.imports.get_proc_address": {
+      "kind": "observation",
+      "status": "absent",
+      "value": false,
+      "evidence": []
+    },
+    "f.imports.loader_apis": {
+      "kind": "observation",
+      "status": "present",
+      "value": [
+        "GetModuleHandleW"
+      ],
+      "evidence": []
+    },
+    "f.code.hash_like_loops": {
+      "kind": "observation",
+      "status": "present",
+      "value": 1,
+      "evidence": [
+        {
+          "function_rva": 4096,
+          "rva": 4127,
+          "va": 5368713247,
+          "file_offset": 1055,
+          "text": "movzx eax, byte ptr [rax]",
+          "note": "byte load inside loop"
+        },
+        {
+          "function_rva": 4096,
+          "rva": 4134,
+          "va": 5368713254,
+          "file_offset": 1062,
+          "text": "imul eax, dword ptr [rsp], 0x21",
+          "note": "mixing instruction inside loop"
+        },
+        {
+          "function_rva": 4096,
+          "rva": 4146,
+          "va": 5368713266,
+          "file_offset": 1074,
+          "text": "add eax, ecx",
+          "note": "combining instruction inside loop"
+        },
+        {
+          "function_rva": 4096,
+          "rva": 4164,
+          "va": 5368713284,
+          "file_offset": 1092,
+          "text": "jmp 0x14000101a",
+          "note": "loop back edge"
+        }
+      ]
+    },
+    "f.code.non_import_indirect_calls": {
+      "kind": "observation",
+      "status": "present",
+      "value": 3,
+      "evidence": [
+        {
+          "function_rva": 4844,
+          "rva": 5038,
+          "va": 5368714158,
+          "file_offset": 1966,
+          "text": "call qword ptr [rip + 0xe04]",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 6656,
+          "rva": 6690,
+          "va": 5368715810,
+          "file_offset": 3618,
+          "text": "call qword ptr [rip + 0x790]",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 6716,
+          "rva": 6750,
+          "va": 5368715870,
+          "file_offset": 3678,
+          "text": "call qword ptr [rip + 0x754]",
+          "note": "indirect call whose target is not an import slot"
+        }
+      ]
+    },
+    "f.code.get_proc_address_calls": {
+      "kind": "observation",
+      "status": "absent",
+      "value": 0,
+      "evidence": []
+    },
+    "f.resolve.constant_names": {
+      "kind": "observation",
+      "status": "absent",
+      "value": [],
+      "evidence": []
+    },
+    "f.resolve.dynamic_name_calls": {
+      "kind": "observation",
+      "status": "absent",
+      "value": 0,
+      "evidence": []
+    },
+    "rel.export_names_enumerated": {
+      "kind": "relation",
+      "status": "absent",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.export_name_to_hash": {
+      "kind": "relation",
+      "status": "absent",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.hash_to_compare": {
+      "kind": "relation",
+      "status": "absent",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.compare_to_name_selection": {
+      "kind": "relation",
+      "status": "absent",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.selection_to_resolve": {
+      "kind": "relation",
+      "status": "absent",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.resolve_to_pointer_use": {
+      "kind": "relation",
+      "status": "absent",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    }
+  },
+  "content_sha256": "AC80BA914E174F57AF5CC0ED3E59D5E45285667556E4D0C23AB631B6059FB2FC",
+  "run": {
+    "analysis_id": "A-20261118T031243429287Z-DCD2080F",
+    "generated_at": "2026-11-18T03:12:43+00:00",
+    "duration_ms": 33.7,
+    "input_path": "input/S-DCD2080F7D.bin",
+    "run_id": "R-20261118T031243Z-dev-1.0.0"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "tv2-rule-lock/1",
+  "lock_version": "1.0.1",
+  "created_at": "2026-11-18T10:13:26+07:00",
+  "note": "Extractor defect fix after lock 1.0.0: negative shift count crashed analysis of a compiler-probe binary. Rule configurations and the split are unchanged. Found by the probe run, not by test-set outcomes.",
+  "git_head": "7ee5880387d326e276f306c42b20cfe03dbb9bf8",
+  "git_branch": "TV2",
+  "git_status_entries": 63,
+  "git_commit_lock": {
+    "created": false,
+    "reason": "the index has unmerged paths",
+    "unmerged_paths": [
+      "evidence/G1/TV3/G1-TV3-01/environment.md"
+    ]
+  },
+  "files_sha256": {
+    "detectors/tv2/tv2pe.py": "50EF5A2EAEDAE7DF718F452BA0AD87F01B58EE3F8E96A8F50F57585FCF1745E5",
+    "detectors/tv2/tv2analysis.py": "84AFB6444A1FF78F814493179DB12E0F14D694BA49980C93B5523F9528B72F37",
+    "detectors/tv2/tv2features.py": "5CFBD5FD8636F3B6E786A05C27EE6DAE96F0324606ADCBD94B3C4D79908DE8FA",
+    "detectors/tv2/tv2rules.py": "80463B996EEA3C477156D58DFCECC9543CA805278D8349B2DCAABE5A9B2F26E7",
+    "configs/tv2/extractor.json": "19C26490F38A4DDE1B20EF47BDCEDE0BB06663B9DBAE22B00170A0CBEADBD481",
+    "configs/tv2/d0.json": "F6C2F73AA2B4AF3D11D66FE3F2B7C26D9B6ECBEEC7BFF0A5F6458671345F35A4",
+    "configs/tv2/static-only.json": "7DD2D62609501A9886AFE945D52D24995FD5F3007A4785ABF8BB3DFE07FDAF20",
+    "configs/tv2/manifest-provisional.csv": "ACCE7782F3BF647B1280BC1A7746859183D666798771418385BBDC334781F5A8",
+    "schemas/tv2/static-features-1.0.schema.json": "BC12DA347167B052EA54644FF76B5205356ACA7D623A184EB22A0B874CB7F558",
+    "schemas/tv2/prediction-1.0.schema.json": "5EEA24C0AD2CFF9F5E09BF163B8D68800E61E9025504D25B2D586615571C2C0C",
+    "configs/tv2/ground-truth-provisional.csv": "3D02C47C308A7B6D82B8565D4BB2814846BC19BC6C0ED3B2967450E6AA5253D0"
+  }
+}

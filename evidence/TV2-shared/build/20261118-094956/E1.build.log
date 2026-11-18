@@ -1,0 +1,10 @@
+main.c
+D:\Study\HK5\Malware\api-hashing-lab\samples\error_cases\E1_wrong_hash\../../common/tv1_program.h(41): warning C4189: 'order': local variable is initialized but not referenced
+D:\Study\HK5\Malware\api-hashing-lab\samples\error_cases\E1_wrong_hash\../../common/tv1_program.h(37): warning C4189: 'targets': local variable is initialized but not referenced
+D:\Study\HK5\Malware\api-hashing-lab\samples\error_cases\E1_wrong_hash\../../common/tv1_program.h(43): warning C4101: 'i': unreferenced local variable
+D:\Study\HK5\Malware\api-hashing-lab\samples\common\tv1_program.h(94) : warning C4702: unreachable code
+D:\Study\HK5\Malware\api-hashing-lab\samples\common\tv1_program.h(98) : warning C4702: unreachable code
+D:\Study\HK5\Malware\api-hashing-lab\samples\common\tv1_program.h(104) : warning C4702: unreachable code
+D:\Study\HK5\Malware\api-hashing-lab\samples\common\tv1_program.h(107) : warning C4702: unreachable code
+D:\Study\HK5\Malware\api-hashing-lab\samples\common\tv1_program.h(108) : warning C4702: unreachable code
+D:\Study\HK5\Malware\api-hashing-lab\samples\common\tv1_program.h(111) : warning C4702: unreachable code

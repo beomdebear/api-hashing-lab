@@ -1,0 +1,89 @@
+{
+  "schema": "tv2-prediction/1.0",
+  "detector": {
+    "name": "STATIC-ONLY",
+    "version": "1.0.0",
+    "config_sha256": "18273F7223B50209969D3DB72F02A64D208CD24D045FD77128497E2C3E092E16"
+  },
+  "sample": {
+    "sha256": "DCD2080F7D406A4DD64845079D4389D6CEAAC7524B57111129DA9C507EFFF539",
+    "sample_id": "S-DCD2080F7D"
+  },
+  "features_content_sha256": "45853B56FC83BA7FC0E518859600B0A9C6E22ED84E3A49C63013C36E162C1F14",
+  "extractor": {
+    "name": "tv2-static-extractor",
+    "version": "1.0.1",
+    "config_sha256": "C4651F3D9BDF0B70AC55609445DE15ADD436DCC05BE408172EF2CADB545450CB",
+    "code_sha256": "F2FED07E22120CEB2686C64454B4A63ED7021B3671F10BCE69AFF8FB1A87E451",
+    "capstone": "6.0.0"
+  },
+  "analysis_status": "ok",
+  "analysis_detail": "",
+  "verdict": "negative",
+  "rules_fired": [],
+  "failed_conditions": [
+    "SR-C1",
+    "SR-C2",
+    "SR-C3",
+    "SR-C4",
+    "SR-C5"
+  ],
+  "conditions": [
+    {
+      "id": "SR-C1",
+      "feature": "rel.export_names_enumerated",
+      "op": "relation_verified",
+      "expected": null,
+      "passed": false,
+      "observed_status": "absent",
+      "observed_value": false,
+      "evidence": []
+    },
+    {
+      "id": "SR-C2",
+      "feature": "rel.export_name_to_hash",
+      "op": "relation_verified",
+      "expected": null,
+      "passed": false,
+      "observed_status": "absent",
+      "observed_value": false,
+      "evidence": []
+    },
+    {
+      "id": "SR-C3",
+      "feature": "rel.hash_to_compare",
+      "op": "relation_verified",
+      "expected": null,
+      "passed": false,
+      "observed_status": "absent",
+      "observed_value": false,
+      "evidence": []
+    },
+    {
+      "id": "SR-C4",
+      "feature": "rel.compare_to_name_selection",
+      "op": "relation_verified",
+      "expected": null,
+      "passed": false,
+      "observed_status": "absent",
+      "observed_value": false,
+      "evidence": []
+    },
+    {
+      "id": "SR-C5",
+      "feature": "rel.selection_to_resolve",
+      "op": "relation_verified",
+      "expected": null,
+      "passed": false,
+      "observed_status": "absent",
+      "observed_value": false,
+      "evidence": []
+    }
+  ],
+  "run": {
+    "analysis_id": "A-20261118T031327133197Z-DCD2080F",
+    "predicted_at": "2026-11-18T03:13:27+00:00",
+    "feature_extraction_ms": 33.6,
+    "run_id": "R-20261118T031326Z-dev-1.0.1"
+  }
+}

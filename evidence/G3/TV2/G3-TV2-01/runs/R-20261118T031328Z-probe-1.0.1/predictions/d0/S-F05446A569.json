@@ -1,0 +1,140 @@
+{
+  "schema": "tv2-prediction/1.0",
+  "detector": {
+    "name": "D0",
+    "version": "1.0.0",
+    "config_sha256": "4EF67359A60906F5950B9FC1D5E1547523D61190C8318E65F439BCD7BB4CC919"
+  },
+  "sample": {
+    "sha256": "F05446A5690EA1B26650430EC4585FC2C32E436C4C9E0DEA32FA7D37784D8503",
+    "sample_id": "S-F05446A569"
+  },
+  "features_content_sha256": "79D46782BC91211E218AE7A059D6AD0C7D1E2E245BBC840F55EC7CC236E6449C",
+  "extractor": {
+    "name": "tv2-static-extractor",
+    "version": "1.0.1",
+    "config_sha256": "C4651F3D9BDF0B70AC55609445DE15ADD436DCC05BE408172EF2CADB545450CB",
+    "code_sha256": "F2FED07E22120CEB2686C64454B4A63ED7021B3671F10BCE69AFF8FB1A87E451",
+    "capstone": "6.0.0"
+  },
+  "analysis_status": "partial",
+  "analysis_detail": "",
+  "verdict": "positive",
+  "rules_fired": [
+    "D0-R1"
+  ],
+  "failed_conditions": [],
+  "conditions": [
+    {
+      "id": "D0-C1",
+      "feature": "f.imports.get_proc_address",
+      "op": "is_true",
+      "expected": null,
+      "passed": true,
+      "observed_status": "present",
+      "observed_value": true,
+      "evidence": [
+        {
+          "function_rva": null,
+          "rva": 61984,
+          "va": 5368771104,
+          "file_offset": 43040,
+          "text": "KERNEL32.dll!GetProcAddress",
+          "note": "import address table slot"
+        }
+      ]
+    },
+    {
+      "id": "D0-C2",
+      "feature": "f.code.hash_like_loops",
+      "op": "gte",
+      "expected": 1,
+      "passed": true,
+      "observed_status": "present",
+      "observed_value": 156,
+      "evidence": [
+        {
+          "function_rva": 11488,
+          "rva": 12117,
+          "va": 5368721237,
+          "file_offset": 9557,
+          "text": "movsx ecx, byte ptr [rsi]",
+          "note": "byte load inside loop"
+        },
+        {
+          "function_rva": 11488,
+          "rva": 11719,
+          "va": 5368720839,
+          "file_offset": 9159,
+          "text": "mul r10",
+          "note": "mixing instruction inside loop"
+        },
+        {
+          "function_rva": 11488,
+          "rva": 11888,
+          "va": 5368721008,
+          "file_offset": 9328,
+          "text": "add rax, r12",
+          "note": "combining instruction inside loop"
+        },
+        {
+          "function_rva": 11488,
+          "rva": 12290,
+          "va": 5368721410,
+          "file_offset": 9730,
+          "text": "jmp 0x140002d20",
+          "note": "loop back edge"
+        }
+      ]
+    },
+    {
+      "id": "D0-C3",
+      "feature": "f.code.non_import_indirect_calls",
+      "op": "gte",
+      "expected": 1,
+      "passed": true,
+      "observed_status": "present",
+      "observed_value": 24,
+      "evidence": [
+        {
+          "function_rva": 4128,
+          "rva": 4190,
+          "va": 5368713310,
+          "file_offset": 1630,
+          "text": "call rdi",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 4128,
+          "rva": 4278,
+          "va": 5368713398,
+          "file_offset": 1718,
+          "text": "call rax",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 5264,
+          "rva": 5296,
+          "va": 5368714416,
+          "file_offset": 2736,
+          "text": "call rax",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 5344,
+          "rva": 5392,
+          "va": 5368714512,
+          "file_offset": 2832,
+          "text": "call qword ptr [rbx]",
+          "note": "indirect call whose target is not an import slot"
+        }
+      ]
+    }
+  ],
+  "run": {
+    "analysis_id": "A-20261118T031331255967Z-F05446A5",
+    "predicted_at": "2026-11-18T03:13:31+00:00",
+    "feature_extraction_ms": 2465.6,
+    "run_id": "R-20261118T031328Z-probe-1.0.1"
+  }
+}

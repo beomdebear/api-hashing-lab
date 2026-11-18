@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tv2-prediction/1.0",
+  "title": "TV2 detector prediction",
+  "type": "object",
+  "required": ["schema", "detector", "sample", "features_content_sha256", "extractor", "analysis_status",
+               "analysis_detail", "verdict", "rules_fired", "failed_conditions", "conditions", "run"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "tv2-prediction/1.0"},
+    "detector": {
+      "type": "object",
+      "required": ["name", "version", "config_sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string"},
+        "version": {"type": "string"},
+        "config_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "sample": {
+      "type": "object",
+      "required": ["sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "sha256": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "sample_id": {"type": "string"}
+      }
+    },
+    "features_content_sha256": {"$ref": "#/$defs/sha256"},
+    "extractor": {"type": "object"},
+    "analysis_status": {"enum": ["ok", "partial", "error", "unsupported"]},
+    "analysis_detail": {"type": "string"},
+    "verdict": {"enum": ["positive", "negative", "unknown"]},
+    "rules_fired": {"type": "array", "items": {"type": "string"}},
+    "failed_conditions": {"type": "array", "items": {"type": "string"}},
+    "conditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "feature", "op", "expected", "passed", "observed_status", "observed_value", "evidence"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "feature": {"type": "string"},
+          "op": {"type": "string"},
+          "expected": {},
+          "passed": {"type": ["boolean", "null"]},
+          "observed_status": {"type": "string"},
+          "observed_value": {},
+          "evidence": {"type": "array", "items": {"type": "object"}}
+        }
+      }
+    },
+    "run": {
+      "type": "object",
+      "required": ["analysis_id", "predicted_at", "feature_extraction_ms"],
+      "additionalProperties": false,
+      "properties": {
+        "analysis_id": {"type": "string"},
+        "predicted_at": {"type": "string"},
+        "feature_extraction_ms": {"type": "number"},
+        "run_id": {"type": "string"}
+      }
+    }
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"}}
+}

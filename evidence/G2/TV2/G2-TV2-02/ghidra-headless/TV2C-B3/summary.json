@@ -1,0 +1,10 @@
+{
+  "tool": "Ghidra 12.2",
+  "program": "TV2C-B3.exe",
+  "sha256": "DAA4113A94D76812937F9215305458612CF53BD3512CAB7701CCC4E3A1ECED5D",
+  "image_base": "140000000",
+  "language": "x86:LE:64:default",
+  "compiler_spec": "windows",
+  "function_count": 117,
+  "functions_exported_for_review": 9
+}

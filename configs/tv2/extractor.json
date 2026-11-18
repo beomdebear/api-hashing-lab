@@ -1,0 +1,8 @@
+{
+  "name": "tv2-static-extractor",
+  "version": "1.0.1",
+  "signal_params": {
+    "mix_strong": ["imul", "mul", "rol", "ror", "shl", "shr"],
+    "mix_combine": ["add", "xor"]
+  }
+}

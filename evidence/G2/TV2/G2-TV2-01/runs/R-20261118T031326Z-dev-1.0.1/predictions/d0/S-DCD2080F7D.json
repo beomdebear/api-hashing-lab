@@ -1,0 +1,123 @@
+{
+  "schema": "tv2-prediction/1.0",
+  "detector": {
+    "name": "D0",
+    "version": "1.0.0",
+    "config_sha256": "4EF67359A60906F5950B9FC1D5E1547523D61190C8318E65F439BCD7BB4CC919"
+  },
+  "sample": {
+    "sha256": "DCD2080F7D406A4DD64845079D4389D6CEAAC7524B57111129DA9C507EFFF539",
+    "sample_id": "S-DCD2080F7D"
+  },
+  "features_content_sha256": "45853B56FC83BA7FC0E518859600B0A9C6E22ED84E3A49C63013C36E162C1F14",
+  "extractor": {
+    "name": "tv2-static-extractor",
+    "version": "1.0.1",
+    "config_sha256": "C4651F3D9BDF0B70AC55609445DE15ADD436DCC05BE408172EF2CADB545450CB",
+    "code_sha256": "F2FED07E22120CEB2686C64454B4A63ED7021B3671F10BCE69AFF8FB1A87E451",
+    "capstone": "6.0.0"
+  },
+  "analysis_status": "ok",
+  "analysis_detail": "",
+  "verdict": "negative",
+  "rules_fired": [],
+  "failed_conditions": [
+    "D0-C1"
+  ],
+  "conditions": [
+    {
+      "id": "D0-C1",
+      "feature": "f.imports.get_proc_address",
+      "op": "is_true",
+      "expected": null,
+      "passed": false,
+      "observed_status": "absent",
+      "observed_value": false,
+      "evidence": []
+    },
+    {
+      "id": "D0-C2",
+      "feature": "f.code.hash_like_loops",
+      "op": "gte",
+      "expected": 1,
+      "passed": true,
+      "observed_status": "present",
+      "observed_value": 1,
+      "evidence": [
+        {
+          "function_rva": 4096,
+          "rva": 4127,
+          "va": 5368713247,
+          "file_offset": 1055,
+          "text": "movzx eax, byte ptr [rax]",
+          "note": "byte load inside loop"
+        },
+        {
+          "function_rva": 4096,
+          "rva": 4134,
+          "va": 5368713254,
+          "file_offset": 1062,
+          "text": "imul eax, dword ptr [rsp], 0x21",
+          "note": "mixing instruction inside loop"
+        },
+        {
+          "function_rva": 4096,
+          "rva": 4146,
+          "va": 5368713266,
+          "file_offset": 1074,
+          "text": "add eax, ecx",
+          "note": "combining instruction inside loop"
+        },
+        {
+          "function_rva": 4096,
+          "rva": 4164,
+          "va": 5368713284,
+          "file_offset": 1092,
+          "text": "jmp 0x14000101a",
+          "note": "loop back edge"
+        }
+      ]
+    },
+    {
+      "id": "D0-C3",
+      "feature": "f.code.non_import_indirect_calls",
+      "op": "gte",
+      "expected": 1,
+      "passed": true,
+      "observed_status": "present",
+      "observed_value": 3,
+      "evidence": [
+        {
+          "function_rva": 4844,
+          "rva": 5038,
+          "va": 5368714158,
+          "file_offset": 1966,
+          "text": "call qword ptr [rip + 0xe04]",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 6656,
+          "rva": 6690,
+          "va": 5368715810,
+          "file_offset": 3618,
+          "text": "call qword ptr [rip + 0x790]",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 6716,
+          "rva": 6750,
+          "va": 5368715870,
+          "file_offset": 3678,
+          "text": "call qword ptr [rip + 0x754]",
+          "note": "indirect call whose target is not an import slot"
+        }
+      ]
+    }
+  ],
+  "run": {
+    "analysis_id": "A-20261118T031327133197Z-DCD2080F",
+    "predicted_at": "2026-11-18T03:13:27+00:00",
+    "feature_extraction_ms": 33.6,
+    "run_id": "R-20261118T031326Z-dev-1.0.1"
+  }
+}

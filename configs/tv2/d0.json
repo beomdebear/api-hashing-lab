@@ -1,0 +1,13 @@
+{
+  "detector": "D0",
+  "version": "1.0.0",
+  "rule_id": "D0-R1",
+  "description": "Baseline co-occurrence rule: GetProcAddress is imported AND a hash-like loop exists AND a non-import indirect call exists. It does not prove that these signs are related.",
+  "logic": "all",
+  "partial_negative_is_unknown": true,
+  "conditions": [
+    {"id": "D0-C1", "feature": "f.imports.get_proc_address", "op": "is_true"},
+    {"id": "D0-C2", "feature": "f.code.hash_like_loops", "op": "gte", "value": 1},
+    {"id": "D0-C3", "feature": "f.code.non_import_indirect_calls", "op": "gte", "value": 1}
+  ]
+}

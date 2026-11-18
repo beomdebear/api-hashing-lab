@@ -1,0 +1,61 @@
+{
+  "schema": "tv2-run/1",
+  "run_id": "R-20261118T031328Z-probe-1.0.1",
+  "split": "probe",
+  "started_at": "2026-11-18T03:13:28+00:00",
+  "git_head": "7ee5880387d326e276f306c42b20cfe03dbb9bf8",
+  "lock": "configs/tv2/locks/rule-lock-1.0.1.json",
+  "extractor": {
+    "version": "1.0.1",
+    "config_sha256": "C4651F3D9BDF0B70AC55609445DE15ADD436DCC05BE408172EF2CADB545450CB",
+    "code_sha256": "F2FED07E22120CEB2686C64454B4A63ED7021B3671F10BCE69AFF8FB1A87E451"
+  },
+  "detectors": {
+    "d0": {
+      "version": "1.0.0",
+      "config_sha256": "4EF67359A60906F5950B9FC1D5E1547523D61190C8318E65F439BCD7BB4CC919"
+    },
+    "static-only": {
+      "version": "1.0.0",
+      "config_sha256": "18273F7223B50209969D3DB72F02A64D208CD24D045FD77128497E2C3E092E16"
+    }
+  },
+  "manifest_sha256": "ACCE7782F3BF647B1280BC1A7746859183D666798771418385BBDC334781F5A8",
+  "samples": [
+    {
+      "sample_id": "S-0B6D9B0A45",
+      "sha256": "0B6D9B0A45A5B3EBA31870B691DECDB7913A103CF7053025E2D2D30F4DD25FAB",
+      "integrity": "ok",
+      "analysis_status": "ok",
+      "analysis_ms": 102.9
+    },
+    {
+      "sample_id": "S-ECDFF1066F",
+      "sha256": "ECDFF1066F90F3D5E8B211C92C8B9DB93325C7E4D729896D67DFB3F863993815",
+      "integrity": "ok",
+      "analysis_status": "ok",
+      "analysis_ms": 147.6
+    },
+    {
+      "sample_id": "S-49912FB416",
+      "sha256": "49912FB41609E3067C9727194C2F80EC27EE4195B8A15644A5043464B931D7AA",
+      "integrity": "ok",
+      "analysis_status": "ok",
+      "analysis_ms": 38.5
+    },
+    {
+      "sample_id": "S-F05446A569",
+      "sha256": "F05446A5690EA1B26650430EC4585FC2C32E436C4C9E0DEA32FA7D37784D8503",
+      "integrity": "ok",
+      "analysis_status": "partial",
+      "analysis_ms": 2465.6
+    },
+    {
+      "sample_id": "S-100FDF18BA",
+      "sha256": "100FDF18BAE5457E198DB4348F7DDECDE1D15D8D82030C8CECAF0B7BF38B1C29",
+      "integrity": "ok",
+      "analysis_status": "partial",
+      "analysis_ms": 2309.6
+    }
+  ]
+}

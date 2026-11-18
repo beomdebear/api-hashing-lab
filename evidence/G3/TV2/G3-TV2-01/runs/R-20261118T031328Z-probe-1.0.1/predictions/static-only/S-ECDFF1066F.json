@@ -1,0 +1,189 @@
+{
+  "schema": "tv2-prediction/1.0",
+  "detector": {
+    "name": "STATIC-ONLY",
+    "version": "1.0.0",
+    "config_sha256": "18273F7223B50209969D3DB72F02A64D208CD24D045FD77128497E2C3E092E16"
+  },
+  "sample": {
+    "sha256": "ECDFF1066F90F3D5E8B211C92C8B9DB93325C7E4D729896D67DFB3F863993815",
+    "sample_id": "S-ECDFF1066F"
+  },
+  "features_content_sha256": "3FA2E9B681272C25766E7649CFD9CC0E03AB1A64C00C059E81D471E3602CDB1C",
+  "extractor": {
+    "name": "tv2-static-extractor",
+    "version": "1.0.1",
+    "config_sha256": "C4651F3D9BDF0B70AC55609445DE15ADD436DCC05BE408172EF2CADB545450CB",
+    "code_sha256": "F2FED07E22120CEB2686C64454B4A63ED7021B3671F10BCE69AFF8FB1A87E451",
+    "capstone": "6.0.0"
+  },
+  "analysis_status": "ok",
+  "analysis_detail": "",
+  "verdict": "positive",
+  "rules_fired": [
+    "SR-R1"
+  ],
+  "failed_conditions": [],
+  "conditions": [
+    {
+      "id": "SR-C1",
+      "feature": "rel.export_names_enumerated",
+      "op": "relation_verified",
+      "expected": null,
+      "passed": true,
+      "observed_status": "verified",
+      "observed_value": true,
+      "evidence": [
+        {
+          "kind": "export_directory_read",
+          "function_rva": 4768,
+          "rva": 4901,
+          "va": 5368714021,
+          "file_offset": 1829,
+          "text": "mov rcx, qword ptr [rax + rbp + 0x88]",
+          "note": "read of NT headers +0x88 (PE32+ export directory RVA)"
+        },
+        {
+          "kind": "export_names_field_read",
+          "function_rva": 4768,
+          "rva": 4960,
+          "va": 5368714080,
+          "file_offset": 1888,
+          "text": "mov edx, dword ptr [r13 + rbp + 0x20]",
+          "note": "read of export directory +0x20 (AddressOfNames)"
+        },
+        {
+          "kind": "export_name_rva_read",
+          "function_rva": 4768,
+          "rva": 5024,
+          "va": 5368714144,
+          "file_offset": 1952,
+          "text": "mov edx, dword ptr [r12 + rdi*4]",
+          "note": "indexed read from AddressOfNames"
+        },
+        {
+          "kind": "export_name_pointer",
+          "function_rva": 4768,
+          "rva": 5049,
+          "va": 5368714169,
+          "file_offset": 1977,
+          "text": "lea rbx, [rdx + rbp]",
+          "note": "module base + name RVA gives an export-name pointer"
+        }
+      ]
+    },
+    {
+      "id": "SR-C2",
+      "feature": "rel.export_name_to_hash",
+      "op": "relation_verified",
+      "expected": null,
+      "passed": true,
+      "observed_status": "verified",
+      "observed_value": true,
+      "evidence": [
+        {
+          "kind": "export_name_hashed",
+          "function_rva": 4768,
+          "rva": 5111,
+          "va": 5368714231,
+          "file_offset": 2039,
+          "text": "xor ecx, eax",
+          "note": "inline mixing of export-name bytes in a loop"
+        },
+        {
+          "kind": "export_name_hashed",
+          "function_rva": 4768,
+          "rva": 5129,
+          "va": 5368714249,
+          "file_offset": 2057,
+          "text": "xor edx, ecx",
+          "note": "inline mixing of export-name bytes in a loop"
+        },
+        {
+          "kind": "export_name_hashed",
+          "function_rva": 4768,
+          "rva": 5147,
+          "va": 5368714267,
+          "file_offset": 2075,
+          "text": "xor ecx, edx",
+          "note": "inline mixing of export-name bytes in a loop"
+        },
+        {
+          "kind": "export_name_hashed",
+          "function_rva": 4768,
+          "rva": 5165,
+          "va": 5368714285,
+          "file_offset": 2093,
+          "text": "xor edx, ecx",
+          "note": "inline mixing of export-name bytes in a loop"
+        }
+      ]
+    },
+    {
+      "id": "SR-C3",
+      "feature": "rel.hash_to_compare",
+      "op": "relation_verified",
+      "expected": null,
+      "passed": true,
+      "observed_status": "verified",
+      "observed_value": true,
+      "evidence": [
+        {
+          "kind": "hash_compared",
+          "function_rva": 4768,
+          "rva": 5270,
+          "va": 5368714390,
+          "file_offset": 2198,
+          "text": "cmp eax, dword ptr [rsp + 0x58]",
+          "note": "hash of export name compared with a function argument"
+        }
+      ]
+    },
+    {
+      "id": "SR-C4",
+      "feature": "rel.compare_to_name_selection",
+      "op": "relation_verified",
+      "expected": null,
+      "passed": true,
+      "observed_status": "verified",
+      "observed_value": true,
+      "evidence": [
+        {
+          "kind": "name_selected_by_hash",
+          "function_rva": 4768,
+          "rva": 5279,
+          "va": 5368714399,
+          "file_offset": 2207,
+          "text": "mov qword ptr [r15], rbx",
+          "note": "export-name pointer is assigned only when the hash comparison selects it"
+        }
+      ]
+    },
+    {
+      "id": "SR-C5",
+      "feature": "rel.selection_to_resolve",
+      "op": "relation_verified",
+      "expected": null,
+      "passed": true,
+      "observed_status": "verified",
+      "observed_value": true,
+      "evidence": [
+        {
+          "kind": "selected_name_resolved",
+          "function_rva": 4257,
+          "rva": 4353,
+          "va": 5368713473,
+          "file_offset": 1281,
+          "text": "call qword ptr [rip + 0x1f09]",
+          "note": "hash-selected export name is passed to GetProcAddress"
+        }
+      ]
+    }
+  ],
+  "run": {
+    "analysis_id": "A-20261118T031328743000Z-ECDFF106",
+    "predicted_at": "2026-11-18T03:13:28+00:00",
+    "feature_extraction_ms": 147.6,
+    "run_id": "R-20261118T031328Z-probe-1.0.1"
+  }
+}

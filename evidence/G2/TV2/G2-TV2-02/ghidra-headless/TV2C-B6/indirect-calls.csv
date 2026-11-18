@@ -1,0 +1,7 @@
+caller_entry_rva,caller,call_rva,instruction
+0x1000,"FUN_140001000",0x1046,"CALL qword ptr [RSP + 0x70]"
+0x1000,"FUN_140001000",0x107E,"CALL qword ptr [RSP + 0x78]"
+0x1000,"FUN_140001000",0x108B,"CALL qword ptr [RSP + 0x80]"
+0x14BC,"FUN_1400014bc",0x157E,"CALL qword ptr [0x1400031c8]"
+0x1BD0,"FUN_140001bd0",0x1BF2,"CALL qword ptr [0x1400031c8]"
+0x1C0C,"FUN_140001c0c",0x1C2E,"CALL qword ptr [0x1400031c8]"

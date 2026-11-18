@@ -1,0 +1,171 @@
+{
+  "schema": "tv2-prediction/1.0",
+  "detector": {
+    "name": "STATIC-ONLY",
+    "version": "1.0.0",
+    "config_sha256": "18273F7223B50209969D3DB72F02A64D208CD24D045FD77128497E2C3E092E16"
+  },
+  "sample": {
+    "sha256": "9750799FF7B91A591D11729A9B1B1FB4496CA09190A52E78A57ED1BF3C939EE7",
+    "sample_id": "S-9750799FF7"
+  },
+  "features_content_sha256": "08173C7F1EECB31C2CD6E4D02F7FA74EF007F0386680A7A1A068078C097065D7",
+  "extractor": {
+    "name": "tv2-static-extractor",
+    "version": "1.0.0",
+    "config_sha256": "E8B9125C4309BCC409B0FCBBD7F379277FB258C640C9E5301B5F95BA83784484",
+    "code_sha256": "150CF1B95DAFCA0B95348D2EF45CD1D14F3BF6C06EEF5D5F3667486BDDD86169",
+    "capstone": "6.0.0"
+  },
+  "analysis_status": "ok",
+  "analysis_detail": "",
+  "verdict": "positive",
+  "rules_fired": [
+    "SR-R1"
+  ],
+  "failed_conditions": [],
+  "conditions": [
+    {
+      "id": "SR-C1",
+      "feature": "rel.export_names_enumerated",
+      "op": "relation_verified",
+      "expected": null,
+      "passed": true,
+      "observed_status": "verified",
+      "observed_value": true,
+      "evidence": [
+        {
+          "kind": "export_directory_read",
+          "function_rva": 4272,
+          "rva": 4502,
+          "va": 5368713622,
+          "file_offset": 1430,
+          "text": "mov rax, qword ptr [rcx + rax + 0x88]",
+          "note": "read of NT headers +0x88 (PE32+ export directory RVA)"
+        },
+        {
+          "kind": "export_names_field_read",
+          "function_rva": 4272,
+          "rva": 4591,
+          "va": 5368713711,
+          "file_offset": 1519,
+          "text": "cmp dword ptr [rax + 0x20], 0",
+          "note": "read of export directory +0x20 (AddressOfNames)"
+        },
+        {
+          "kind": "export_names_field_read",
+          "function_rva": 4272,
+          "rva": 4622,
+          "va": 5368713742,
+          "file_offset": 1550,
+          "text": "mov ecx, dword ptr [rax + 0x20]",
+          "note": "read of export directory +0x20 (AddressOfNames)"
+        },
+        {
+          "kind": "export_names_field_read",
+          "function_rva": 4272,
+          "rva": 4649,
+          "va": 5368713769,
+          "file_offset": 1577,
+          "text": "mov eax, dword ptr [rax + 0x20]",
+          "note": "read of export directory +0x20 (AddressOfNames)"
+        }
+      ]
+    },
+    {
+      "id": "SR-C2",
+      "feature": "rel.export_name_to_hash",
+      "op": "relation_verified",
+      "expected": null,
+      "passed": true,
+      "observed_status": "verified",
+      "observed_value": true,
+      "evidence": [
+        {
+          "kind": "export_name_hashed",
+          "function_rva": 4272,
+          "rva": 4829,
+          "va": 5368713949,
+          "file_offset": 1757,
+          "text": "call 0x140001000",
+          "note": "export-name pointer passed to hash-like function at RVA 0x1000"
+        }
+      ]
+    },
+    {
+      "id": "SR-C3",
+      "feature": "rel.hash_to_compare",
+      "op": "relation_verified",
+      "expected": null,
+      "passed": true,
+      "observed_status": "verified",
+      "observed_value": true,
+      "evidence": [
+        {
+          "kind": "hash_compared",
+          "function_rva": 4272,
+          "rva": 4834,
+          "va": 5368713954,
+          "file_offset": 1762,
+          "text": "cmp eax, dword ptr [rsp + 0x78]",
+          "note": "hash of export name compared with a function argument"
+        }
+      ]
+    },
+    {
+      "id": "SR-C4",
+      "feature": "rel.compare_to_name_selection",
+      "op": "relation_verified",
+      "expected": null,
+      "passed": true,
+      "observed_status": "verified",
+      "observed_value": true,
+      "evidence": [
+        {
+          "kind": "name_selected_by_hash",
+          "function_rva": 4272,
+          "rva": 4870,
+          "va": 5368713990,
+          "file_offset": 1798,
+          "text": "mov rcx, qword ptr [rsp + 0x58]",
+          "note": "export-name pointer is assigned only when the hash comparison selects it"
+        },
+        {
+          "kind": "name_selected_by_hash",
+          "function_rva": 4272,
+          "rva": 4875,
+          "va": 5368713995,
+          "file_offset": 1803,
+          "text": "mov qword ptr [rax], rcx",
+          "note": "export-name pointer is assigned only when the hash comparison selects it"
+        }
+      ]
+    },
+    {
+      "id": "SR-C5",
+      "feature": "rel.selection_to_resolve",
+      "op": "relation_verified",
+      "expected": null,
+      "passed": true,
+      "observed_status": "verified",
+      "observed_value": true,
+      "evidence": [
+        {
+          "kind": "selected_name_resolved",
+          "function_rva": 4960,
+          "rva": 5041,
+          "va": 5368714161,
+          "file_offset": 1969,
+          "text": "call qword ptr [rip + 0x1c59]",
+          "note": "hash-selected export name is passed to GetProcAddress"
+        }
+      ]
+    }
+  ],
+  "run": {
+    "analysis_id": "A-20261118T031244068743Z-9750799F",
+    "predicted_at": "2026-11-18T03:12:44+00:00",
+    "feature_extraction_ms": 124.3,
+    "run_id": "R-20261118T031243Z-test-1.0.0"
+  }
+}

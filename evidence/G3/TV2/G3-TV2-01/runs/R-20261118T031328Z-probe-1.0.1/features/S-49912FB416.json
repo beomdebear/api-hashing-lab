@@ -1,0 +1,299 @@
+{
+  "schema": "tv2-static-features/1.0",
+  "extractor": {
+    "name": "tv2-static-extractor",
+    "version": "1.0.1",
+    "config_sha256": "C4651F3D9BDF0B70AC55609445DE15ADD436DCC05BE408172EF2CADB545450CB",
+    "code_sha256": "F2FED07E22120CEB2686C64454B4A63ED7021B3671F10BCE69AFF8FB1A87E451",
+    "capstone": "6.0.0"
+  },
+  "sample": {
+    "sha256": "49912FB41609E3067C9727194C2F80EC27EE4195B8A15644A5043464B931D7AA",
+    "size": 10752
+  },
+  "analysis": {
+    "status": "ok",
+    "detail": "",
+    "functions": 71,
+    "incomplete": []
+  },
+  "pe": {
+    "machine": 34404,
+    "image_base": 5368709120,
+    "entry_rva": 5312,
+    "sections": [
+      {
+        "name": ".text",
+        "rva": 4096,
+        "virtual_size": 3740,
+        "raw_offset": 1024,
+        "raw_size": 4096,
+        "executable": true
+      },
+      {
+        "name": ".rdata",
+        "rva": 8192,
+        "virtual_size": 3948,
+        "raw_offset": 5120,
+        "raw_size": 4096,
+        "executable": false
+      },
+      {
+        "name": ".data",
+        "rva": 12288,
+        "virtual_size": 304,
+        "raw_offset": 9216,
+        "raw_size": 512,
+        "executable": false
+      },
+      {
+        "name": ".pdata",
+        "rva": 16384,
+        "virtual_size": 360,
+        "raw_offset": 9728,
+        "raw_size": 512,
+        "executable": false
+      },
+      {
+        "name": ".reloc",
+        "rva": 20480,
+        "virtual_size": 44,
+        "raw_offset": 10240,
+        "raw_size": 512,
+        "executable": false
+      }
+    ],
+    "imports": [
+      "KERNEL32.dll!FreeLibrary",
+      "KERNEL32.dll!GetCurrentProcessId",
+      "KERNEL32.dll!GetCurrentThreadId",
+      "KERNEL32.dll!GetModuleHandleW",
+      "KERNEL32.dll!GetProcAddress",
+      "KERNEL32.dll!GetSystemTimeAsFileTime",
+      "KERNEL32.dll!InitializeSListHead",
+      "KERNEL32.dll!IsDebuggerPresent",
+      "KERNEL32.dll!IsProcessorFeaturePresent",
+      "KERNEL32.dll!LoadLibraryW",
+      "KERNEL32.dll!QueryPerformanceCounter",
+      "KERNEL32.dll!RtlCaptureContext",
+      "KERNEL32.dll!RtlLookupFunctionEntry",
+      "KERNEL32.dll!RtlVirtualUnwind",
+      "KERNEL32.dll!SetUnhandledExceptionFilter",
+      "KERNEL32.dll!UnhandledExceptionFilter",
+      "VCRUNTIME140.dll!__C_specific_handler",
+      "VCRUNTIME140.dll!__current_exception",
+      "VCRUNTIME140.dll!__current_exception_context",
+      "VCRUNTIME140.dll!memcpy",
+      "VCRUNTIME140.dll!memset",
+      "api-ms-win-crt-heap-l1-1-0.dll!_set_new_mode",
+      "api-ms-win-crt-locale-l1-1-0.dll!_configthreadlocale",
+      "api-ms-win-crt-math-l1-1-0.dll!__setusermatherr",
+      "api-ms-win-crt-runtime-l1-1-0.dll!__p___argc",
+      "api-ms-win-crt-runtime-l1-1-0.dll!__p___argv",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_c_exit",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_cexit",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_configure_narrow_argv",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_crt_atexit",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_exit",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_get_initial_narrow_environment",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_initialize_narrow_environment",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_initialize_onexit_table",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_initterm",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_initterm_e",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_register_onexit_function",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_register_thread_local_exe_atexit_callback",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_seh_filter_exe",
+      "api-ms-win-crt-runtime-l1-1-0.dll!_set_app_type",
+      "api-ms-win-crt-runtime-l1-1-0.dll!exit",
+      "api-ms-win-crt-runtime-l1-1-0.dll!terminate",
+      "api-ms-win-crt-stdio-l1-1-0.dll!__acrt_iob_func",
+      "api-ms-win-crt-stdio-l1-1-0.dll!__p__commode",
+      "api-ms-win-crt-stdio-l1-1-0.dll!__stdio_common_vfprintf",
+      "api-ms-win-crt-stdio-l1-1-0.dll!_set_fmode",
+      "api-ms-win-crt-string-l1-1-0.dll!strcmp"
+    ]
+  },
+  "features": {
+    "f.imports.get_proc_address": {
+      "kind": "observation",
+      "status": "present",
+      "value": true,
+      "evidence": [
+        {
+          "function_rva": null,
+          "rva": 8200,
+          "va": 5368717320,
+          "file_offset": 5128,
+          "text": "KERNEL32.dll!GetProcAddress",
+          "note": "import address table slot"
+        }
+      ]
+    },
+    "f.imports.loader_apis": {
+      "kind": "observation",
+      "status": "present",
+      "value": [
+        "GetModuleHandleW",
+        "LoadLibraryW"
+      ],
+      "evidence": []
+    },
+    "f.code.hash_like_loops": {
+      "kind": "observation",
+      "status": "absent",
+      "value": 0,
+      "evidence": []
+    },
+    "f.code.non_import_indirect_calls": {
+      "kind": "observation",
+      "status": "present",
+      "value": 6,
+      "evidence": [
+        {
+          "function_rva": 4246,
+          "rva": 4298,
+          "va": 5368713418,
+          "file_offset": 1226,
+          "text": "call rsi",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 4246,
+          "rva": 4342,
+          "va": 5368713462,
+          "file_offset": 1270,
+          "text": "call rbx",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 4246,
+          "rva": 4349,
+          "va": 5368713469,
+          "file_offset": 1277,
+          "text": "call rbp",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 4932,
+          "rva": 5126,
+          "va": 5368714246,
+          "file_offset": 2054,
+          "text": "call qword ptr [rip + 0xdbc]",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 6744,
+          "rva": 6778,
+          "va": 5368715898,
+          "file_offset": 3706,
+          "text": "call qword ptr [rip + 0x748]",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 6804,
+          "rva": 6838,
+          "va": 5368715958,
+          "file_offset": 3766,
+          "text": "call qword ptr [rip + 0x70c]",
+          "note": "indirect call whose target is not an import slot"
+        }
+      ]
+    },
+    "f.code.get_proc_address_calls": {
+      "kind": "observation",
+      "status": "present",
+      "value": 1,
+      "evidence": [
+        {
+          "function_rva": 4544,
+          "rva": 4693,
+          "va": 5368713813,
+          "file_offset": 1621,
+          "text": "call qword ptr [rip + 0xdad]",
+          "note": "call through the import slot of GetProcAddress"
+        }
+      ]
+    },
+    "f.resolve.constant_names": {
+      "kind": "observation",
+      "status": "absent",
+      "value": [],
+      "evidence": []
+    },
+    "f.resolve.dynamic_name_calls": {
+      "kind": "observation",
+      "status": "absent",
+      "value": 0,
+      "evidence": []
+    },
+    "rel.export_names_enumerated": {
+      "kind": "relation",
+      "status": "heuristic",
+      "value": false,
+      "detail": "export fields are read, but no name pointer was traced",
+      "evidence": [
+        {
+          "kind": "export_directory_read",
+          "function_rva": 4544,
+          "rva": 4597,
+          "va": 5368713717,
+          "file_offset": 1525,
+          "text": "mov eax, dword ptr [rax + rcx + 0x88]",
+          "note": "read of NT headers +0x88 (PE32+ export directory RVA)"
+        },
+        {
+          "kind": "export_names_field_read",
+          "function_rva": 4544,
+          "rva": 4606,
+          "va": 5368713726,
+          "file_offset": 1534,
+          "text": "mov edi, dword ptr [rax + rcx + 0x20]",
+          "note": "read of export directory +0x20 (AddressOfNames)"
+        }
+      ]
+    },
+    "rel.export_name_to_hash": {
+      "kind": "relation",
+      "status": "absent",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.hash_to_compare": {
+      "kind": "relation",
+      "status": "absent",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.compare_to_name_selection": {
+      "kind": "relation",
+      "status": "absent",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.selection_to_resolve": {
+      "kind": "relation",
+      "status": "absent",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.resolve_to_pointer_use": {
+      "kind": "relation",
+      "status": "absent",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    }
+  },
+  "content_sha256": "11806B4B63554A61A932B0E99458B97A76AE80ACAE57ACEF18CE410E895DB363",
+  "run": {
+    "analysis_id": "A-20261118T031328785680Z-49912FB4",
+    "generated_at": "2026-11-18T03:13:28+00:00",
+    "duration_ms": 38.5,
+    "input_path": "input/S-49912FB416.bin",
+    "run_id": "R-20261118T031328Z-probe-1.0.1"
+  }
+}

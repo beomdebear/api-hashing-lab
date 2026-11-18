@@ -1,0 +1,526 @@
+{
+  "schema": "tv2-static-features/1.0",
+  "extractor": {
+    "name": "tv2-static-extractor",
+    "version": "1.0.1",
+    "config_sha256": "C4651F3D9BDF0B70AC55609445DE15ADD436DCC05BE408172EF2CADB545450CB",
+    "code_sha256": "F2FED07E22120CEB2686C64454B4A63ED7021B3671F10BCE69AFF8FB1A87E451",
+    "capstone": "6.0.0"
+  },
+  "sample": {
+    "sha256": "100FDF18BAE5457E198DB4348F7DDECDE1D15D8D82030C8CECAF0B7BF38B1C29",
+    "size": 274324
+  },
+  "analysis": {
+    "status": "partial",
+    "detail": "",
+    "functions": 125,
+    "incomplete": [
+      {
+        "function_rva": 12848,
+        "reason": "block_visit_budget"
+      },
+      {
+        "function_rva": 15280,
+        "reason": "block_visit_budget"
+      }
+    ]
+  },
+  "pe": {
+    "machine": 34404,
+    "image_base": 5368709120,
+    "entry_rva": 5184,
+    "sections": [
+      {
+        "name": ".text",
+        "rva": 4096,
+        "virtual_size": 31952,
+        "raw_offset": 1536,
+        "raw_size": 32256,
+        "executable": true
+      },
+      {
+        "name": ".data",
+        "rva": 36864,
+        "virtual_size": 288,
+        "raw_offset": 33792,
+        "raw_size": 512,
+        "executable": false
+      },
+      {
+        "name": ".rdata",
+        "rva": 40960,
+        "virtual_size": 4760,
+        "raw_offset": 34304,
+        "raw_size": 5120,
+        "executable": false
+      },
+      {
+        "name": ".pdata",
+        "rva": 49152,
+        "virtual_size": 1152,
+        "raw_offset": 39424,
+        "raw_size": 1536,
+        "executable": false
+      },
+      {
+        "name": ".xdata",
+        "rva": 53248,
+        "virtual_size": 1032,
+        "raw_offset": 40960,
+        "raw_size": 1536,
+        "executable": false
+      },
+      {
+        "name": ".bss",
+        "rva": 57344,
+        "virtual_size": 2960,
+        "raw_offset": 0,
+        "raw_size": 0,
+        "executable": false
+      },
+      {
+        "name": ".idata",
+        "rva": 61440,
+        "virtual_size": 1916,
+        "raw_offset": 42496,
+        "raw_size": 2048,
+        "executable": false
+      },
+      {
+        "name": ".tls",
+        "rva": 65536,
+        "virtual_size": 16,
+        "raw_offset": 44544,
+        "raw_size": 512,
+        "executable": false
+      },
+      {
+        "name": ".rsrc",
+        "rva": 69632,
+        "virtual_size": 1256,
+        "raw_offset": 45056,
+        "raw_size": 1536,
+        "executable": false
+      },
+      {
+        "name": ".reloc",
+        "rva": 73728,
+        "virtual_size": 128,
+        "raw_offset": 46592,
+        "raw_size": 512,
+        "executable": false
+      },
+      {
+        "name": "/4",
+        "rva": 77824,
+        "virtual_size": 1888,
+        "raw_offset": 47104,
+        "raw_size": 2048,
+        "executable": false
+      },
+      {
+        "name": "/19",
+        "rva": 81920,
+        "virtual_size": 78798,
+        "raw_offset": 49152,
+        "raw_size": 78848,
+        "executable": false
+      },
+      {
+        "name": "/31",
+        "rva": 163840,
+        "virtual_size": 14324,
+        "raw_offset": 128000,
+        "raw_size": 14336,
+        "executable": false
+      },
+      {
+        "name": "/45",
+        "rva": 180224,
+        "virtual_size": 31251,
+        "raw_offset": 142336,
+        "raw_size": 31744,
+        "executable": false
+      },
+      {
+        "name": "/57",
+        "rva": 212992,
+        "virtual_size": 5664,
+        "raw_offset": 174080,
+        "raw_size": 6144,
+        "executable": false
+      },
+      {
+        "name": "/70",
+        "rva": 221184,
+        "virtual_size": 920,
+        "raw_offset": 180224,
+        "raw_size": 1024,
+        "executable": false
+      },
+      {
+        "name": "/81",
+        "rva": 225280,
+        "virtual_size": 10008,
+        "raw_offset": 181248,
+        "raw_size": 10240,
+        "executable": false
+      },
+      {
+        "name": "/97",
+        "rva": 237568,
+        "virtual_size": 34355,
+        "raw_offset": 191488,
+        "raw_size": 34816,
+        "executable": false
+      },
+      {
+        "name": "/113",
+        "rva": 274432,
+        "virtual_size": 1468,
+        "raw_offset": 226304,
+        "raw_size": 1536,
+        "executable": false
+      }
+    ],
+    "imports": [
+      "KERNEL32.dll!DeleteCriticalSection",
+      "KERNEL32.dll!EnterCriticalSection",
+      "KERNEL32.dll!FreeLibrary",
+      "KERNEL32.dll!GetCPInfo",
+      "KERNEL32.dll!GetLastError",
+      "KERNEL32.dll!GetModuleHandleA",
+      "KERNEL32.dll!GetProcAddress",
+      "KERNEL32.dll!InitializeCriticalSection",
+      "KERNEL32.dll!LeaveCriticalSection",
+      "KERNEL32.dll!LoadLibraryW",
+      "KERNEL32.dll!MultiByteToWideChar",
+      "KERNEL32.dll!SetUnhandledExceptionFilter",
+      "KERNEL32.dll!Sleep",
+      "KERNEL32.dll!TlsGetValue",
+      "KERNEL32.dll!VirtualProtect",
+      "KERNEL32.dll!VirtualQuery",
+      "KERNEL32.dll!WideCharToMultiByte",
+      "msvcrt.dll!__C_specific_handler",
+      "msvcrt.dll!___lc_codepage_func",
+      "msvcrt.dll!___mb_cur_max_func",
+      "msvcrt.dll!__getmainargs",
+      "msvcrt.dll!__initenv",
+      "msvcrt.dll!__iob_func",
+      "msvcrt.dll!__set_app_type",
+      "msvcrt.dll!__setusermatherr",
+      "msvcrt.dll!_amsg_exit",
+      "msvcrt.dll!_cexit",
+      "msvcrt.dll!_commode",
+      "msvcrt.dll!_errno",
+      "msvcrt.dll!_fmode",
+      "msvcrt.dll!_initterm",
+      "msvcrt.dll!_lock",
+      "msvcrt.dll!_unlock",
+      "msvcrt.dll!abort",
+      "msvcrt.dll!atexit",
+      "msvcrt.dll!calloc",
+      "msvcrt.dll!exit",
+      "msvcrt.dll!fflush",
+      "msvcrt.dll!fprintf",
+      "msvcrt.dll!fputc",
+      "msvcrt.dll!free",
+      "msvcrt.dll!localeconv",
+      "msvcrt.dll!malloc",
+      "msvcrt.dll!memcpy",
+      "msvcrt.dll!setvbuf",
+      "msvcrt.dll!signal",
+      "msvcrt.dll!strcmp",
+      "msvcrt.dll!strerror",
+      "msvcrt.dll!strlen",
+      "msvcrt.dll!strncmp",
+      "msvcrt.dll!vfprintf",
+      "msvcrt.dll!wcslen"
+    ]
+  },
+  "features": {
+    "f.imports.get_proc_address": {
+      "kind": "observation",
+      "status": "present",
+      "value": true,
+      "evidence": [
+        {
+          "function_rva": null,
+          "rva": 61984,
+          "va": 5368771104,
+          "file_offset": 43040,
+          "text": "KERNEL32.dll!GetProcAddress",
+          "note": "import address table slot"
+        }
+      ]
+    },
+    "f.imports.loader_apis": {
+      "kind": "observation",
+      "status": "present",
+      "value": [
+        "GetModuleHandleA",
+        "LoadLibraryW"
+      ],
+      "evidence": []
+    },
+    "f.code.hash_like_loops": {
+      "kind": "observation",
+      "status": "present",
+      "value": 148,
+      "evidence": [
+        {
+          "function_rva": 11616,
+          "rva": 12245,
+          "va": 5368721365,
+          "file_offset": 9685,
+          "text": "movsx ecx, byte ptr [rsi]",
+          "note": "byte load inside loop"
+        },
+        {
+          "function_rva": 11616,
+          "rva": 11847,
+          "va": 5368720967,
+          "file_offset": 9287,
+          "text": "mul r10",
+          "note": "mixing instruction inside loop"
+        },
+        {
+          "function_rva": 11616,
+          "rva": 12016,
+          "va": 5368721136,
+          "file_offset": 9456,
+          "text": "add rax, r12",
+          "note": "combining instruction inside loop"
+        },
+        {
+          "function_rva": 11616,
+          "rva": 12418,
+          "va": 5368721538,
+          "file_offset": 9858,
+          "text": "jmp 0x140002da0",
+          "note": "loop back edge"
+        },
+        {
+          "function_rva": 11616,
+          "rva": 12245,
+          "va": 5368721365,
+          "file_offset": 9685,
+          "text": "movsx ecx, byte ptr [rsi]",
+          "note": "byte load inside loop"
+        },
+        {
+          "function_rva": 11616,
+          "rva": 12408,
+          "va": 5368721528,
+          "file_offset": 9848,
+          "text": "imul rdx, r8",
+          "note": "mixing instruction inside loop"
+        },
+        {
+          "function_rva": 11616,
+          "rva": 12416,
+          "va": 5368721536,
+          "file_offset": 9856,
+          "text": "add eax, edx",
+          "note": "combining instruction inside loop"
+        },
+        {
+          "function_rva": 11616,
+          "rva": 12439,
+          "va": 5368721559,
+          "file_offset": 9879,
+          "text": "je 0x140002f94",
+          "note": "loop back edge"
+        }
+      ]
+    },
+    "f.code.non_import_indirect_calls": {
+      "kind": "observation",
+      "status": "present",
+      "value": 24,
+      "evidence": [
+        {
+          "function_rva": 4128,
+          "rva": 4190,
+          "va": 5368713310,
+          "file_offset": 1630,
+          "text": "call rdi",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 4128,
+          "rva": 4278,
+          "va": 5368713398,
+          "file_offset": 1718,
+          "text": "call rax",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 5408,
+          "rva": 5440,
+          "va": 5368714560,
+          "file_offset": 2880,
+          "text": "call rax",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 5488,
+          "rva": 5536,
+          "va": 5368714656,
+          "file_offset": 2976,
+          "text": "call qword ptr [rbx]",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 5696,
+          "rva": 5784,
+          "va": 5368714904,
+          "file_offset": 3224,
+          "text": "call rax",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 6560,
+          "rva": 7069,
+          "va": 5368716189,
+          "file_offset": 4509,
+          "text": "call rdi",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 7472,
+          "rva": 7526,
+          "va": 5368716646,
+          "file_offset": 4966,
+          "text": "call rax",
+          "note": "indirect call whose target is not an import slot"
+        },
+        {
+          "function_rva": 7552,
+          "rva": 7707,
+          "va": 5368716827,
+          "file_offset": 5147,
+          "text": "call rax",
+          "note": "indirect call whose target is not an import slot"
+        }
+      ]
+    },
+    "f.code.get_proc_address_calls": {
+      "kind": "observation",
+      "status": "present",
+      "value": 2,
+      "evidence": [
+        {
+          "function_rva": 5264,
+          "rva": 5381,
+          "va": 5368714501,
+          "file_offset": 2821,
+          "text": "jmp qword ptr [rip + 0xdd14]",
+          "note": "call through the import slot of GetProcAddress"
+        },
+        {
+          "function_rva": 35520,
+          "rva": 35616,
+          "va": 5368744736,
+          "file_offset": 33056,
+          "text": "call qword ptr [rip + 0x66fa]",
+          "note": "call through the import slot of GetProcAddress"
+        }
+      ]
+    },
+    "f.resolve.constant_names": {
+      "kind": "observation",
+      "status": "present",
+      "value": [
+        "constant name 'IsDBCSLeadByteEx'"
+      ],
+      "evidence": [
+        {
+          "kind": "constant_name_resolved",
+          "function_rva": 35520,
+          "rva": 35616,
+          "va": 5368744736,
+          "file_offset": 33056,
+          "text": "call qword ptr [rip + 0x66fa]",
+          "note": "constant name 'IsDBCSLeadByteEx'"
+        }
+      ]
+    },
+    "f.resolve.dynamic_name_calls": {
+      "kind": "observation",
+      "status": "absent",
+      "value": 0,
+      "evidence": []
+    },
+    "rel.export_names_enumerated": {
+      "kind": "relation",
+      "status": "heuristic",
+      "value": false,
+      "detail": "export fields are read, but no name pointer was traced",
+      "evidence": [
+        {
+          "kind": "export_directory_read",
+          "function_rva": 5264,
+          "rva": 5302,
+          "va": 5368714422,
+          "file_offset": 2742,
+          "text": "mov eax, dword ptr [rax + 0x88]",
+          "note": "read of NT headers +0x88 (PE32+ export directory RVA)"
+        },
+        {
+          "kind": "export_names_field_read",
+          "function_rva": 5264,
+          "rva": 5316,
+          "va": 5368714436,
+          "file_offset": 2756,
+          "text": "mov ebx, dword ptr [rcx + rax + 0x20]",
+          "note": "read of export directory +0x20 (AddressOfNames)"
+        }
+      ]
+    },
+    "rel.export_name_to_hash": {
+      "kind": "relation",
+      "status": "unknown",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.hash_to_compare": {
+      "kind": "relation",
+      "status": "unknown",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.compare_to_name_selection": {
+      "kind": "relation",
+      "status": "unknown",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.selection_to_resolve": {
+      "kind": "relation",
+      "status": "unknown",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    },
+    "rel.resolve_to_pointer_use": {
+      "kind": "relation",
+      "status": "unknown",
+      "value": false,
+      "detail": "",
+      "evidence": []
+    }
+  },
+  "content_sha256": "8F4BD53F38572E979B1738ED55DFEAAB05A8D2563783C094FF6F830825D08F6E",
+  "run": {
+    "analysis_id": "A-20261118T031333572073Z-100FDF18",
+    "generated_at": "2026-11-18T03:13:33+00:00",
+    "duration_ms": 2309.6,
+    "input_path": "input/S-100FDF18BA.bin",
+    "run_id": "R-20261118T031328Z-probe-1.0.1"
+  }
+}

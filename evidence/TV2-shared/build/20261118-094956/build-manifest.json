@@ -1,0 +1,359 @@
+{
+  "schema": "tv2-build-manifest/1",
+  "build_id": "20261118-094956",
+  "created_at": "2026-11-18T09:50:03+07:00",
+  "host": "developer host (not a lab VM); binaries were built, not executed, by this script",
+  "git_branch": "TV2",
+  "git_head": "7ee5880387d326e276f306c42b20cfe03dbb9bf8",
+  "source_tree_dirty": true,
+  "git_status_entries": 53,
+  "compiler_msvc": "cl.exe 19.44.35221.0",
+  "compiler_gcc": "gcc.exe (Rev13, Built by MSYS2 project) 15.2.0",
+  "vcvars": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat",
+  "tv1_build_dir": "artifacts/builds/tv1/20261118-094958-476",
+  "tv2_build_dir": "artifacts/builds/tv2/20261118-094956",
+  "samples": [
+    {
+      "build_key": "B1",
+      "group": "tv1_sample",
+      "sha256": "1B52E1BC5C2CA66B7388DFD6AE2E15A5D296541487D9DAB2BC9345B2D87636D8",
+      "size": 10240,
+      "binary": "artifacts/builds/tv1/20261118-094958-476/B1/B1.exe",
+      "build_log": "artifacts/builds/tv1/20261118-094958-476/B1/build.log",
+      "source": "samples/benign/B1_static_import/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /Od /MD /utf-8 /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094958-476",
+      "inputs": {
+        "samples/benign/B1_static_import/main.c": "29A3D513E13BD0CFB341A59F075BF14A164EE5B5934E59B799944375D4C03BA5",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "B2",
+      "group": "tv1_sample",
+      "sha256": "4332381DAC1948769C6A4D7BD02800A09302678907044FDF7A211DA1DA9446CE",
+      "size": 10752,
+      "binary": "artifacts/builds/tv1/20261118-094958-476/B2/B2.exe",
+      "build_log": "artifacts/builds/tv1/20261118-094958-476/B2/build.log",
+      "source": "samples/benign/B2_dynamic_name/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /Od /MD /utf-8 /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094958-476",
+      "inputs": {
+        "samples/benign/B2_dynamic_name/main.c": "E4B3EBD7B1955313D49846C2BC1710D66F5416DEA46E94AED9AFE928BB7B7954",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "P1",
+      "group": "tv1_sample",
+      "sha256": "0277D53B1124978B29154BFA4C11CA62E69CCCF4AF614199DA8D2A5401366787",
+      "size": 12288,
+      "binary": "artifacts/builds/tv1/20261118-094958-476/P1/P1.exe",
+      "build_log": "artifacts/builds/tv1/20261118-094958-476/P1/build.log",
+      "source": "samples/api_hashing/P1_djb2/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /Od /MD /utf-8 /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094958-476",
+      "inputs": {
+        "samples/api_hashing/P1_djb2/main.c": "2006C06A64D0121298EC1EAAC9C0A11BE59D461E1297ED90AA05E9EE95011FFF",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "P2",
+      "group": "tv1_sample",
+      "sha256": "C0A9BE62C1B2B7EF24692DAF842C80A91CF55E604B27C9F7D6E59CFDE4C74AE9",
+      "size": 12288,
+      "binary": "artifacts/builds/tv1/20261118-094958-476/P2/P2.exe",
+      "build_log": "artifacts/builds/tv1/20261118-094958-476/P2/build.log",
+      "source": "samples/api_hashing/P2_fnv1a/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /Od /MD /utf-8 /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094958-476",
+      "inputs": {
+        "samples/api_hashing/P2_fnv1a/main.c": "B22DBE5D5336F4966129C3FB64450A2F1698EBBCC34D448D5AE85F13BD440616",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "P3",
+      "group": "tv1_sample",
+      "sha256": "9D9F49C84A60E6297DED31BDE8CF0D34870607EDD58D8FA2FF4D9F2A4618B472",
+      "size": 12288,
+      "binary": "artifacts/builds/tv1/20261118-094958-476/P3/P3.exe",
+      "build_log": "artifacts/builds/tv1/20261118-094958-476/P3/build.log",
+      "source": "samples/api_hashing/P3_crc32/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /Od /MD /utf-8 /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094958-476",
+      "inputs": {
+        "samples/api_hashing/P3_crc32/main.c": "D1A628993303BF9DE052B621DF0F6F1679303B31D60390473239F279B08829D8",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "P4",
+      "group": "tv1_sample",
+      "sha256": "9750799FF7B91A591D11729A9B1B1FB4496CA09190A52E78A57ED1BF3C939EE7",
+      "size": 12288,
+      "binary": "artifacts/builds/tv1/20261118-094958-476/P4/P4.exe",
+      "build_log": "artifacts/builds/tv1/20261118-094958-476/P4/build.log",
+      "source": "samples/api_hashing/P4_changed_seed/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /Od /MD /utf-8 /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094958-476",
+      "inputs": {
+        "samples/api_hashing/P4_changed_seed/main.c": "5BC6CFC293D8021C68D9E2DE6FC56DBF6C968D08D2B439A10E22C00B12619F21",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "P5",
+      "group": "tv1_sample",
+      "sha256": "0ABF1577D295D3B1D17BA202034B22ED6DA3A3B79F1301B9DF3DD40261C8656D",
+      "size": 12288,
+      "binary": "artifacts/builds/tv1/20261118-094958-476/P5/P5.exe",
+      "build_log": "artifacts/builds/tv1/20261118-094958-476/P5/build.log",
+      "source": "samples/api_hashing/P5_changed_order/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /Od /MD /utf-8 /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094958-476",
+      "inputs": {
+        "samples/api_hashing/P5_changed_order/main.c": "1CB83F903EBE00A92CD29C82E23C6180B4578EA8F36105CD356D54167C70EE70",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "E1",
+      "group": "tv1_sample",
+      "sha256": "2916E4F9E886E86343E08E0E525CF2CA13D9D6E4705EC68C7C0921E9A81EAA0E",
+      "size": 12288,
+      "binary": "artifacts/builds/tv1/20261118-094958-476/E1/E1.exe",
+      "build_log": "artifacts/builds/tv1/20261118-094958-476/E1/build.log",
+      "source": "samples/error_cases/E1_wrong_hash/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /Od /MD /utf-8 /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094958-476",
+      "inputs": {
+        "samples/error_cases/E1_wrong_hash/main.c": "754AEB69C6ED5F3630BBA770A6B9F8FFD2A46790F23C6F69A30A953A4EA1536D",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "E2",
+      "group": "tv1_sample",
+      "sha256": "F24E0C6E2066452C8C8CC3CA7A4E51103E27AF2BF435C87CCADBF021271E5DE8",
+      "size": 12288,
+      "binary": "artifacts/builds/tv1/20261118-094958-476/E2/E2.exe",
+      "build_log": "artifacts/builds/tv1/20261118-094958-476/E2/build.log",
+      "source": "samples/error_cases/E2_early_exit/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /Od /MD /utf-8 /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094958-476",
+      "inputs": {
+        "samples/error_cases/E2_early_exit/main.c": "72B3FC86A4E9704C7D3777B84EBCF5009E4D8CD2A5E863EBCB7AC7800F6A7667",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "TV2C-B3",
+      "group": "tv2_control_proposed",
+      "sha256": "DAA4113A94D76812937F9215305458612CF53BD3512CAB7701CCC4E3A1ECED5D",
+      "size": 11264,
+      "binary": "artifacts/builds/tv2/20261118-094956/TV2C-B3/TV2C-B3.exe",
+      "build_log": "artifacts/builds/tv2/20261118-094956/TV2C-B3/build.log",
+      "source": "samples/tv2_controls/B3_name_table/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /Od /MD /utf-8 /FeTV2C-B3.exe /FoTV2C-B3.obj <source> /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094956",
+      "inputs": {
+        "samples/tv2_controls/B3_name_table/main.c": "1BE2D672DF57AFBD32F441131BF48B5FE0906B8A0FEAF4075225FDE3A68C3A16",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "TV2C-B4",
+      "group": "tv2_control_proposed",
+      "sha256": "DCD2080F7D406A4DD64845079D4389D6CEAAC7524B57111129DA9C507EFFF539",
+      "size": 10752,
+      "binary": "artifacts/builds/tv2/20261118-094956/TV2C-B4/TV2C-B4.exe",
+      "build_log": "artifacts/builds/tv2/20261118-094956/TV2C-B4/build.log",
+      "source": "samples/tv2_controls/B4_data_hash/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /Od /MD /utf-8 /FeTV2C-B4.exe /FoTV2C-B4.obj <source> /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094956",
+      "inputs": {
+        "samples/tv2_controls/B4_data_hash/main.c": "EE0E97712AFDE222363E4683287A7EA0BB22C614CBA4D20F7D70BC56C0DFDF5F",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "TV2C-B5",
+      "group": "tv2_control_proposed",
+      "sha256": "EB8A4426E124E9660B8E7B73F8B6D52AE596AC015F14809D85AC12B747ADFA38",
+      "size": 10752,
+      "binary": "artifacts/builds/tv2/20261118-094956/TV2C-B5/TV2C-B5.exe",
+      "build_log": "artifacts/builds/tv2/20261118-094956/TV2C-B5/build.log",
+      "source": "samples/tv2_controls/B5_hash_and_named_resolve/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /Od /MD /utf-8 /FeTV2C-B5.exe /FoTV2C-B5.obj <source> /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094956",
+      "inputs": {
+        "samples/tv2_controls/B5_hash_and_named_resolve/main.c": "0C48BDD7EEB1358C0EB26763164FBA316654EE303B973E73106992ACF8851607",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "TV2C-B6",
+      "group": "tv2_control_proposed",
+      "sha256": "6E7DCBA2D1CAAA8E7DBB0A20FA2C44F9CE0ED5D14951D3AC266075675EFEC5F7",
+      "size": 11264,
+      "binary": "artifacts/builds/tv2/20261118-094956/TV2C-B6/TV2C-B6.exe",
+      "build_log": "artifacts/builds/tv2/20261118-094956/TV2C-B6/build.log",
+      "source": "samples/tv2_controls/B6_export_strcmp/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /Od /MD /utf-8 /FeTV2C-B6.exe /FoTV2C-B6.obj <source> /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094956",
+      "inputs": {
+        "samples/tv2_controls/B6_export_strcmp/main.c": "21BFB36F59835FA7BF7BB13F69F90050F7DCF9CA8F61F8175702EF3ADEA32387",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "VAR-P1-MSVC-O2",
+      "group": "compiler_probe",
+      "sha256": "0B6D9B0A45A5B3EBA31870B691DECDB7913A103CF7053025E2D2D30F4DD25FAB",
+      "size": 12288,
+      "binary": "artifacts/builds/tv2/20261118-094956/VAR-P1-MSVC-O2/VAR-P1-MSVC-O2.exe",
+      "build_log": "artifacts/builds/tv2/20261118-094956/VAR-P1-MSVC-O2/build.log",
+      "source": "samples/api_hashing/P1_djb2/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /O2 /MD /utf-8 /FeVAR-P1-MSVC-O2.exe /FoVAR-P1-MSVC-O2.obj <source> /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094956",
+      "inputs": {
+        "samples/api_hashing/P1_djb2/main.c": "2006C06A64D0121298EC1EAAC9C0A11BE59D461E1297ED90AA05E9EE95011FFF",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "VAR-P3-MSVC-O2",
+      "group": "compiler_probe",
+      "sha256": "ECDFF1066F90F3D5E8B211C92C8B9DB93325C7E4D729896D67DFB3F863993815",
+      "size": 12288,
+      "binary": "artifacts/builds/tv2/20261118-094956/VAR-P3-MSVC-O2/VAR-P3-MSVC-O2.exe",
+      "build_log": "artifacts/builds/tv2/20261118-094956/VAR-P3-MSVC-O2/build.log",
+      "source": "samples/api_hashing/P3_crc32/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /O2 /MD /utf-8 /FeVAR-P3-MSVC-O2.exe /FoVAR-P3-MSVC-O2.obj <source> /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094956",
+      "inputs": {
+        "samples/api_hashing/P3_crc32/main.c": "D1A628993303BF9DE052B621DF0F6F1679303B31D60390473239F279B08829D8",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "VAR-B6-MSVC-O2",
+      "group": "compiler_probe",
+      "sha256": "49912FB41609E3067C9727194C2F80EC27EE4195B8A15644A5043464B931D7AA",
+      "size": 10752,
+      "binary": "artifacts/builds/tv2/20261118-094956/VAR-B6-MSVC-O2/VAR-B6-MSVC-O2.exe",
+      "build_log": "artifacts/builds/tv2/20261118-094956/VAR-B6-MSVC-O2/build.log",
+      "source": "samples/tv2_controls/B6_export_strcmp/main.c",
+      "compiler": "MSVC cl.exe 19.44.35221.0",
+      "flags": "/nologo /TC /W4 /O2 /MD /utf-8 /FeVAR-B6-MSVC-O2.exe /FoVAR-B6-MSVC-O2.obj <source> /link /INCREMENTAL:NO",
+      "sub_build_id": "20261118-094956",
+      "inputs": {
+        "samples/tv2_controls/B6_export_strcmp/main.c": "21BFB36F59835FA7BF7BB13F69F90050F7DCF9CA8F61F8175702EF3ADEA32387",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "VAR-P1-GCC-O2",
+      "group": "compiler_probe",
+      "sha256": "F05446A5690EA1B26650430EC4585FC2C32E436C4C9E0DEA32FA7D37784D8503",
+      "size": 274200,
+      "binary": "artifacts/builds/tv2/20261118-094956/VAR-P1-GCC-O2/VAR-P1-GCC-O2.exe",
+      "build_log": "artifacts/builds/tv2/20261118-094956/VAR-P1-GCC-O2/build.log",
+      "source": "samples/api_hashing/P1_djb2/main.c",
+      "compiler": "gcc.exe (Rev13, Built by MSYS2 project) 15.2.0",
+      "flags": "gcc -O2 -Wall",
+      "sub_build_id": "20261118-094956",
+      "inputs": {
+        "samples/api_hashing/P1_djb2/main.c": "2006C06A64D0121298EC1EAAC9C0A11BE59D461E1297ED90AA05E9EE95011FFF",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    },
+    {
+      "build_key": "VAR-B6-GCC-O2",
+      "group": "compiler_probe",
+      "sha256": "100FDF18BAE5457E198DB4348F7DDECDE1D15D8D82030C8CECAF0B7BF38B1C29",
+      "size": 274324,
+      "binary": "artifacts/builds/tv2/20261118-094956/VAR-B6-GCC-O2/VAR-B6-GCC-O2.exe",
+      "build_log": "artifacts/builds/tv2/20261118-094956/VAR-B6-GCC-O2/build.log",
+      "source": "samples/tv2_controls/B6_export_strcmp/main.c",
+      "compiler": "gcc.exe (Rev13, Built by MSYS2 project) 15.2.0",
+      "flags": "gcc -O2 -Wall",
+      "sub_build_id": "20261118-094956",
+      "inputs": {
+        "samples/tv2_controls/B6_export_strcmp/main.c": "21BFB36F59835FA7BF7BB13F69F90050F7DCF9CA8F61F8175702EF3ADEA32387",
+        "samples/common/tv1_hash.h": "F90208644B7D49544A2C3642130F8C26AEB10349B069ACE7CC96C1C4EF43CCDE",
+        "samples/common/tv1_program.h": "8EE1C4E6697BBB48183B16FC69A2FAFD6881054DC5205079EFC08E7CA5FD7032",
+        "samples/common/tv1_resolver.h": "70FF626C3EFF590F76FC27C0ABD6390E86C5FBD545D8E99141406AD41D601945",
+        "samples/tv2_controls/tv2_control.h": "92D57B94A61B6FA29FC8452406087D804244D8BFBF034CB253374D2F01324DD0"
+      }
+    }
+  ]
+}

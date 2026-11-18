@@ -1,0 +1,10 @@
+{
+  "tool": "Ghidra 12.2",
+  "program": "B1.exe",
+  "sha256": "1B52E1BC5C2CA66B7388DFD6AE2E15A5D296541487D9DAB2BC9345B2D87636D8",
+  "image_base": "140000000",
+  "language": "x86:LE:64:default",
+  "compiler_spec": "windows",
+  "function_count": 112,
+  "functions_exported_for_review": 4
+}

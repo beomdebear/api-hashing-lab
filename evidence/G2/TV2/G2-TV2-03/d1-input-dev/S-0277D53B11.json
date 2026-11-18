@@ -1,0 +1,21 @@
+{
+  "schema": "tv2-d1-static-input/1.0",
+  "sha256": "0277D53B1124978B29154BFA4C11CA62E69CCCF4AF614199DA8D2A5401366787",
+  "analysis_id": "A-20261118T031327031692Z-0277D53B",
+  "features_content_sha256": "61882DB271C22BB64F32BC5DF2B7132CCA22DDE260449E79B88F12E4C5992461",
+  "analysis_status": "ok",
+  "values": {
+    "imports_get_proc_address": 1,
+    "hash_like_loops": 1,
+    "non_import_indirect_calls": 6,
+    "get_proc_address_calls": 1,
+    "dynamic_name_calls": 1,
+    "export_names_enumerated": 1.0,
+    "export_name_to_hash": 1.0,
+    "hash_to_compare": 1.0,
+    "compare_to_name_selection": 1.0,
+    "selection_to_resolve": 1.0,
+    "resolve_to_pointer_use": 1.0
+  },
+  "missing": []
+}

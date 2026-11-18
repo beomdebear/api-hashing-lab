@@ -1,0 +1,82 @@
+{
+  "schema": "tv2-run/1",
+  "run_id": "R-20261118T031243Z-test-1.0.0",
+  "split": "test",
+  "started_at": "2026-11-18T03:12:43+00:00",
+  "git_head": "7ee5880387d326e276f306c42b20cfe03dbb9bf8",
+  "lock": "configs/tv2/locks/rule-lock-1.0.0.json",
+  "extractor": {
+    "version": "1.0.0",
+    "config_sha256": "E8B9125C4309BCC409B0FCBBD7F379277FB258C640C9E5301B5F95BA83784484",
+    "code_sha256": "150CF1B95DAFCA0B95348D2EF45CD1D14F3BF6C06EEF5D5F3667486BDDD86169"
+  },
+  "detectors": {
+    "d0": {
+      "version": "1.0.0",
+      "config_sha256": "4EF67359A60906F5950B9FC1D5E1547523D61190C8318E65F439BCD7BB4CC919"
+    },
+    "static-only": {
+      "version": "1.0.0",
+      "config_sha256": "18273F7223B50209969D3DB72F02A64D208CD24D045FD77128497E2C3E092E16"
+    }
+  },
+  "manifest_sha256": "ACCE7782F3BF647B1280BC1A7746859183D666798771418385BBDC334781F5A8",
+  "samples": [
+    {
+      "sample_id": "S-C0A9BE62C1",
+      "sha256": "C0A9BE62C1B2B7EF24692DAF842C80A91CF55E604B27C9F7D6E59CFDE4C74AE9",
+      "integrity": "ok",
+      "analysis_status": "ok",
+      "analysis_ms": 123.8
+    },
+    {
+      "sample_id": "S-9D9F49C84A",
+      "sha256": "9D9F49C84A60E6297DED31BDE8CF0D34870607EDD58D8FA2FF4D9F2A4618B472",
+      "integrity": "ok",
+      "analysis_status": "ok",
+      "analysis_ms": 135.7
+    },
+    {
+      "sample_id": "S-9750799FF7",
+      "sha256": "9750799FF7B91A591D11729A9B1B1FB4496CA09190A52E78A57ED1BF3C939EE7",
+      "integrity": "ok",
+      "analysis_status": "ok",
+      "analysis_ms": 124.3
+    },
+    {
+      "sample_id": "S-0ABF1577D2",
+      "sha256": "0ABF1577D295D3B1D17BA202034B22ED6DA3A3B79F1301B9DF3DD40261C8656D",
+      "integrity": "ok",
+      "analysis_status": "ok",
+      "analysis_ms": 123.8
+    },
+    {
+      "sample_id": "S-2916E4F9E8",
+      "sha256": "2916E4F9E886E86343E08E0E525CF2CA13D9D6E4705EC68C7C0921E9A81EAA0E",
+      "integrity": "ok",
+      "analysis_status": "ok",
+      "analysis_ms": 103.0
+    },
+    {
+      "sample_id": "S-F24E0C6E20",
+      "sha256": "F24E0C6E2066452C8C8CC3CA7A4E51103E27AF2BF435C87CCADBF021271E5DE8",
+      "integrity": "ok",
+      "analysis_status": "ok",
+      "analysis_ms": 124.3
+    },
+    {
+      "sample_id": "S-EB8A4426E1",
+      "sha256": "EB8A4426E124E9660B8E7B73F8B6D52AE596AC015F14809D85AC12B747ADFA38",
+      "integrity": "ok",
+      "analysis_status": "ok",
+      "analysis_ms": 34.0
+    },
+    {
+      "sample_id": "S-6E7DCBA2D1",
+      "sha256": "6E7DCBA2D1CAAA8E7DBB0A20FA2C44F9CE0ED5D14951D3AC266075675EFEC5F7",
+      "integrity": "ok",
+      "analysis_status": "ok",
+      "analysis_ms": 50.2
+    }
+  ]
+}

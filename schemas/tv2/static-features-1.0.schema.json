@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tv2-static-features/1.0",
+  "title": "TV2 static features (proposed contract for D1, not yet agreed by the group)",
+  "type": "object",
+  "required": ["schema", "extractor", "sample", "analysis", "pe", "features", "content_sha256", "run"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "tv2-static-features/1.0"},
+    "extractor": {
+      "type": "object",
+      "required": ["name", "version", "config_sha256", "code_sha256", "capstone"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string"},
+        "version": {"type": "string"},
+        "config_sha256": {"$ref": "#/$defs/sha256"},
+        "code_sha256": {"$ref": "#/$defs/sha256"},
+        "capstone": {"type": "string"}
+      }
+    },
+    "sample": {
+      "type": "object",
+      "required": ["sha256", "size"],
+      "additionalProperties": false,
+      "properties": {
+        "sha256": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "size": {"type": ["integer", "null"], "minimum": 0}
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "required": ["status", "detail", "functions", "incomplete"],
+      "additionalProperties": false,
+      "properties": {
+        "status": {"enum": ["ok", "partial", "error", "unsupported"]},
+        "detail": {"type": "string"},
+        "functions": {"type": "integer", "minimum": 0},
+        "incomplete": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["function_rva", "reason"],
+            "additionalProperties": false,
+            "properties": {"function_rva": {"type": "integer"}, "reason": {"type": "string"}}
+          }
+        }
+      }
+    },
+    "pe": {
+      "type": ["object", "null"],
+      "required": ["machine", "image_base", "entry_rva", "sections", "imports"],
+      "additionalProperties": false,
+      "properties": {
+        "machine": {"type": "integer"},
+        "image_base": {"type": "integer"},
+        "entry_rva": {"type": "integer"},
+        "sections": {"type": "array", "items": {"type": "object"}},
+        "imports": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "features": {
+      "type": "object",
+      "required": [
+        "f.imports.get_proc_address", "f.imports.loader_apis", "f.code.hash_like_loops",
+        "f.code.non_import_indirect_calls", "f.code.get_proc_address_calls",
+        "f.resolve.constant_names", "f.resolve.dynamic_name_calls",
+        "rel.export_names_enumerated", "rel.export_name_to_hash", "rel.hash_to_compare",
+        "rel.compare_to_name_selection", "rel.selection_to_resolve", "rel.resolve_to_pointer_use"
+      ],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^f\\.": {"$ref": "#/$defs/observation"},
+        "^rel\\.": {"$ref": "#/$defs/relation"}
+      }
+    },
+    "content_sha256": {"$ref": "#/$defs/sha256"},
+    "run": {
+      "type": "object",
+      "required": ["analysis_id", "generated_at", "duration_ms", "input_path"],
+      "additionalProperties": false,
+      "properties": {
+        "analysis_id": {"type": "string"},
+        "generated_at": {"type": "string"},
+        "duration_ms": {"type": "number", "minimum": 0},
+        "input_path": {"type": "string"},
+        "run_id": {"type": "string"}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+    "evidence": {
+      "type": "object",
+      "required": ["rva", "va", "file_offset", "text", "note"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {"type": "string"},
+        "function_rva": {"type": ["integer", "null"]},
+        "rva": {"type": "integer"},
+        "va": {"type": "integer"},
+        "file_offset": {"type": ["integer", "null"]},
+        "text": {"type": "string"},
+        "note": {"type": "string"},
+        "via_call_rva": {"type": "integer"}
+      }
+    },
+    "observation": {
+      "type": "object",
+      "required": ["kind", "status", "value", "evidence"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {"const": "observation"},
+        "status": {"enum": ["present", "absent", "unknown", "analysis_error"]},
+        "value": {"type": ["boolean", "integer", "array", "null"]},
+        "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}}
+      }
+    },
+    "relation": {
+      "type": "object",
+      "required": ["kind", "status", "value", "detail", "evidence"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {"const": "relation"},
+        "status": {"enum": ["verified", "heuristic", "absent", "unknown", "analysis_error"]},
+        "value": {"type": ["boolean", "null"]},
+        "detail": {"type": "string"},
+        "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}}
+      }
+    }
+  }
+}
