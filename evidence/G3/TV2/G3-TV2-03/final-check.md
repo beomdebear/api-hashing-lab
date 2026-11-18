@@ -1,15 +1,15 @@
 # Kiểm tra cuối phần TV2
 
-Thời điểm: 2026-11-18T10:37:08+07:00. Sinh bởi `detectors/tv2/tv2linkcheck.py`.
+Thời điểm: 2026-11-18T10:50:09+07:00. Sinh bởi `detectors/tv2/tv2linkcheck.py`.
 
 | Mục | Kết quả |
 |---|---|
-| Tài liệu đã quét | 34 |
-| Liên kết nội bộ đã kiểm | 22 |
-| Đường dẫn trong mã đã kiểm | 252 |
+| Tài liệu đã quét | 43 |
+| Liên kết nội bộ đã kiểm | 98 |
+| Đường dẫn trong mã đã kiểm | 277 |
 | Run phiên bản hiện tại | `R-20261118T031326Z-dev-1.0.1`, `R-20261118T031327Z-test-1.0.1`, `R-20261118T031328Z-probe-1.0.1` |
 | Lock hiện tại | `configs/tv2/locks/rule-lock-1.0.1.json` |
-| Commit khóa | chưa có (the index has unmerged paths) |
+| Commit khóa | `1befa67` chứa đúng các tệp của lock |
 | Ảnh GUI đã có | 0 |
 | Ảnh GUI còn thiếu | 22 |
 | Lỗi liên kết hoặc phiên bản | 0 |
@@ -20,7 +20,7 @@ Thời điểm: 2026-11-18T10:37:08+07:00. Sinh bởi `detectors/tv2/tv2linkchec
 - [x] Mọi run hiện tại dùng đúng code, config và được báo cáo nêu.
 - [x] Liên kết và đường dẫn trong tài liệu TV2 tồn tại.
 - [ ] Đủ ảnh GUI theo danh sách chụp.
-- [ ] Có commit khóa.
+- [x] Có commit chứa đúng các tệp của lock.
 - [ ] TV1 phản hồi review.
 - [ ] TV4 xác nhận mẫu đối chứng, nhãn và split.
 - [ ] Có bảng D0/D1 thực đo.

@@ -1,6 +1,6 @@
 # Đặc tả thực thi TV2
 
-Tệp này lưu yêu cầu lâu dài. Tiến độ nằm trong [TASK-TRACKER.md](TASK-TRACKER.md). Prompt gốc: [PROMPT-CLAUDE-TV2.md](../../prompt-claude/PROMPT-CLAUDE-TV2.md).
+Tệp này lưu yêu cầu lâu dài. Tiến độ nằm trong [TASK-TRACKER.md](TASK-TRACKER.md). Prompt gốc: [PROMPT-CLAUDE-TV2.md](../prompt-claude/PROMPT-CLAUDE-TV2.md).
 
 ## 1. Tài liệu nguồn
 
@@ -28,11 +28,12 @@ Khi bắt đầu phiên mới, tính lại SHA-256 của PDF. Nếu khác giá t
 ## 3. Yêu cầu của người dùng còn hiệu lực
 
 - AI trực tiếp làm tối đa, chỉ bàn giao việc thật sự cần người dùng, kèm lý do và hướng dẫn cụ thể.
-- Bảo toàn Git: không reset/clean/stash, không xử lý xung đột TV3, không commit ngoài phạm vi, không push khi chưa được yêu cầu.
+- Bảo toàn Git: không reset/clean/stash, không sửa phần việc của thành viên khác, không commit ngoài phạm vi, không push khi chưa được yêu cầu.
 - Không tự ghi TV1/TV3/TV4 đã xác nhận. Mẫu và split do TV2 tạo chỉ là đề xuất.
 - Không dùng nhãn, tên mẫu, source, bảng hash, audit hay log tự khai làm đặc trưng dự đoán.
 - Thay thế kỹ thuật không thay thế tiêu chí nghiệm thu: build mới không phải binary lịch sử, output headless không phải ảnh GUI.
-- Lưu báo cáo `ban-giao/DD-MM-YYYY_HH-mm.md` theo UTC+7, cập nhật `ban-giao/START-HERE.md` sau cùng.
+- Lưu báo cáo `tv2/ban-giao/DD-MM-YYYY_HH-mm.md` theo UTC+7, cập nhật `tv2/ban-giao/START-HERE.md` sau cùng.
+- Điều chỉnh ngày 2026-11-18: tài liệu TV2 đặt ở `tv2/`, ngang hàng với `docs/`, mỗi task một thư mục. Chỉ thị này thay cấu trúc `docs/tv2/` được gợi ý trong prompt. Báo cáo bàn giao đặt ở `tv2/ban-giao/`, thay vị trí `ban-giao/` ở gốc trong prompt. Minh chứng vẫn ở `evidence/G*/TV2/`.
 
 ## 4. Lựa chọn triển khai của TV2 (chưa được nhóm duyệt)
 
@@ -44,7 +45,7 @@ Khi bắt đầu phiên mới, tính lại SHA-256 của PDF. Nếu khác giá t
 | Định nghĩa D0 | `configs/tv2/d0.json`: GetProcAddress + vòng giống hash + lời gọi gián tiếp ngoài IAT | Dấu hiệu đơn giản, chọn trên B1/B2/P1 |
 | Định nghĩa static-only | `configs/tv2/static-only.json`: chuỗi quan hệ đã xác minh | Giả định của TV2; nhóm chưa định nghĩa static-only |
 | Nhãn và split | `configs/tv2/*-provisional.csv` | TV4 giữ nhãn và split chính thức |
-| Khóa rule | `configs/tv2/locks/` bằng checksum | Git đang có đường dẫn unmerged nên chưa thể tạo commit khóa |
+| Khóa rule | `configs/tv2/locks/` bằng checksum; commit `1befa67` chứa đúng các tệp của lock 1.0.1 | Commit do người dùng tạo, đã đối chiếu từng checksum trong `configs/tv2/locks/lock-commits.json` |
 | Ảnh GUI | Người dùng chạy `scripts/tv2-capture-gui.ps1` | Lệnh tự mở GUI bị kiểm soát quyền từ chối; thỏa thuận người dùng của Ghidra do người dùng tự quyết định |
 
 ## 5. Quy tắc đánh giá

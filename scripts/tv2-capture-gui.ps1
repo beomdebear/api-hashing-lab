@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
   Opens the real Ghidra window and captures the TV2 evidence images.
-  Run it yourself from the project root. See docs/tv2/HUONG-DAN-CHUP-ANH.md.
+  Run it yourself from the project root. See tv2/HUONG-DAN-CHUP-ANH.md.
 .EXAMPLE
   pwsh -NoProfile -File scripts/tv2-capture-gui.ps1
   pwsh -NoProfile -File scripts/tv2-capture-gui.ps1 -Only P1

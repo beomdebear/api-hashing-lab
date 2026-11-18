@@ -57,26 +57,12 @@ Mở `artifacts\tools\ghidra_12.2_PUBLIC\ghidraRun.bat`, chọn JDK trong `artif
 
 Chỉ cần nói "đã chụp xong", kèm lỗi nếu có. AI sẽ kiểm tra ảnh, cập nhật báo cáo và chạy lại kiểm tra cuối.
 
-## 2. Mở khóa commit rule
-
-**Task còn thiếu:** commit khóa của G2-TV2-03.
-
-**Vì sao AI không tự làm:** `evidence/G1/TV3/G1-TV3-01/environment.md` đang unmerged và thuộc TV3. Prompt yêu cầu không tự xử lý xung đột đó, và commit cần bạn cho phép.
-
-**Đã chuẩn bị:** `configs/tv2/locks/rule-lock-1.0.1.json` ghi checksum và nêu rõ chưa có commit.
-
-**Thao tác:**
-
-1. Cùng TV3 chọn nội dung đúng của tệp trên, xóa dấu xung đột, rồi chạy `git add evidence/G1/TV3/G1-TV3-01/environment.md`.
-2. Kiểm tra `git diff --name-only --diff-filter=U` không còn dòng nào.
-3. Báo AI: "được commit phần TV2". AI sẽ kiểm tra lock và chỉ commit các tệp TV2.
-
-## 3. Xác nhận từ nhóm
+## 2. Xác nhận từ nhóm
 
 | Người | Cần xác nhận | Tài liệu gửi |
 |---|---|---|
-| TV1 | Danh sách dấu hiệu, các điểm review, binary và commit chốt | `docs/tv2/static-checklist.md`, `docs/tv2/tv1-review.md` |
+| TV1 | Danh sách dấu hiệu, các điểm review, binary và commit chốt | `tv2/G1-TV2-01/static-checklist.md`, `tv2/G3-TV2-03/tv1-review.md` |
 | TV4 | TV2C-B3..B6, nhãn, split, bảng FP/FN | `evidence/G2/TV2/G2-TV2-02/control-signals.md`, `configs/tv2/manifest-provisional.csv`, `evidence/G3/TV2/G3-TV2-01/error-analysis.md` |
-| Nhóm | Định nghĩa static-only, giao diện và kết quả D1, mốc tuần 7 | `docs/tv2/D1-HANDOFF.md` |
+| Nhóm | Định nghĩa static-only, giao diện và kết quả D1, mốc tuần 7 | `tv2/G2-TV2-03/D1-HANDOFF.md` |
 
 Gửi lại phản hồi hoặc đường dẫn kết quả. Nếu nhãn hay split thay đổi, AI sẽ tạo manifest và lượt chạy mới, không ghi đè kết quả cũ.

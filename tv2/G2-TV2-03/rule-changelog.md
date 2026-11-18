@@ -15,5 +15,5 @@
 
 - `configs/tv2/locks/rule-lock-1.0.0.json`: giữ để truy vết. Không còn khớp code hiện tại, đây là điều mong đợi.
 - `configs/tv2/locks/rule-lock-1.0.1.json`: phiên bản hiện tại.
-- **Chưa có commit khóa.** Git đang có `evidence/G1/TV3/G1-TV3-01/environment.md` ở trạng thái unmerged. Checksum trong lock không thay thế commit.
+- Commit `1befa67` do người dùng tạo chứa đúng các tệp của lock 1.0.1. Kết quả đối chiếu ở `configs/tv2/locks/lock-commits.json`. Trường `git_commit_lock` trong tệp lock giữ nguyên vì nó ghi trạng thái lúc tạo lock.
 - Mốc khóa cuối tuần 7 của nhóm chưa được đối chiếu với lịch thực tế.

@@ -1,21 +1,21 @@
 # TV2 — Phân tích tĩnh và detector
 
-Điểm bắt đầu cho người tiếp nhận: [ban-giao/START-HERE.md](ban-giao/START-HERE.md). Tình trạng từng task: [docs/tv2/TASK-TRACKER.md](docs/tv2/TASK-TRACKER.md).
+Điểm bắt đầu cho người tiếp nhận: [tv2/ban-giao/START-HERE.md](tv2/ban-giao/START-HERE.md). Tài liệu theo từng task: [tv2/README.md](tv2/README.md). Tình trạng chi tiết: [tv2/TASK-TRACKER.md](tv2/TASK-TRACKER.md).
 
-Claude Code tự nạp `CLAUDE.md` khi mở dự án. Với công cụ khác, hãy chỉ định đọc `ban-giao/START-HERE.md` trước.
+Claude Code tự nạp `CLAUDE.md` khi mở dự án. Với công cụ khác, hãy chỉ định đọc `tv2/ban-giao/START-HERE.md` trước.
 
 ## Thành phần chính
 
 | Nội dung | Đường dẫn |
 |---|---|
-| Báo cáo static | [docs/tv2/static-detector-report.md](docs/tv2/static-detector-report.md) |
-| Cơ chế PE | [docs/tv2/pe-notes.md](docs/tv2/pe-notes.md) |
-| Checklist dấu hiệu | [docs/tv2/static-checklist.md](docs/tv2/static-checklist.md) |
-| Rule D0 | [docs/tv2/d0-rule.md](docs/tv2/d0-rule.md) |
-| Đặc trưng | [docs/tv2/features.md](docs/tv2/features.md) |
-| Bàn giao D1 (đề xuất) | [docs/tv2/D1-HANDOFF.md](docs/tv2/D1-HANDOFF.md) |
-| Review TV1 | [docs/tv2/tv1-review.md](docs/tv2/tv1-review.md) |
-| Việc cần người dùng | [docs/tv2/HUONG-DAN-CHUP-ANH.md](docs/tv2/HUONG-DAN-CHUP-ANH.md) |
+| Báo cáo static | [tv2/G3-TV2-02/static-detector-report.md](tv2/G3-TV2-02/static-detector-report.md) |
+| Cơ chế PE | [tv2/G1-TV2-01/pe-notes.md](tv2/G1-TV2-01/pe-notes.md) |
+| Checklist dấu hiệu | [tv2/G1-TV2-01/static-checklist.md](tv2/G1-TV2-01/static-checklist.md) |
+| Rule D0 | [tv2/G2-TV2-01/d0-rule.md](tv2/G2-TV2-01/d0-rule.md) |
+| Đặc trưng | [tv2/G2-TV2-03/features.md](tv2/G2-TV2-03/features.md) |
+| Bàn giao D1 (đề xuất) | [tv2/G2-TV2-03/D1-HANDOFF.md](tv2/G2-TV2-03/D1-HANDOFF.md) |
+| Review TV1 | [tv2/G3-TV2-03/tv1-review.md](tv2/G3-TV2-03/tv1-review.md) |
+| Việc cần người dùng | [tv2/HUONG-DAN-CHUP-ANH.md](tv2/HUONG-DAN-CHUP-ANH.md) |
 | Mã detector | `detectors/tv2/` |
 | Rule, manifest, lock | `configs/tv2/` |
 | Schema | `schemas/tv2/` |
@@ -56,7 +56,7 @@ artifacts\tools\venv\Scripts\python.exe tests\tv2\test_tv2.py
 pwsh -NoProfile -ExecutionPolicy Bypass -File scripts\tv2-evaluate-all.ps1 -Splits 'dev,test,probe'
 
 # 5. Sinh lại bảng minh chứng và kiểm tra cuối
-artifacts\tools\venv\Scripts\python.exe detectors\tv2\tv2report.py
+artifacts\tools\venv\Scripts\python.exe detectors\tv2\tv2report.py --docs-only
 artifacts\tools\venv\Scripts\python.exe detectors\tv2\tv2linkcheck.py
 ```
 
@@ -74,5 +74,5 @@ Không cần chạy mẫu để phân tích tĩnh. Các lệnh trên không th�
 ## Giới hạn
 
 - Build, nhãn, split và `TV2C-*` là sản phẩm hoặc đề xuất của TV2, chưa được nhóm duyệt.
-- Ảnh GUI Ghidra, commit khóa và bảng D0/D1 chưa có.
+- Ảnh GUI Ghidra và bảng D0/D1 chưa có.
 - Kết quả hiện tại không phải đánh giá held-out chính thức.

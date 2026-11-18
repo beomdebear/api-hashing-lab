@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 
 plt.rcParams["font.family"] = "Arial"
-OUT = Path(__file__).resolve().parents[1] / "docs" / "tv2" / "images" / "pe-mechanism.png"
+OUT = Path(__file__).resolve().parents[1] / "tv2" / "G1-TV2-01" / "images" / "pe-mechanism.png"
 INK, MUTED = "#1F2937", "#4B5563"
 BLUE, GREEN, AMBER, RED, GRAY = "#DBEAFE", "#DCFCE7", "#FEF3C7", "#FEE2E2", "#F3F4F6"
 

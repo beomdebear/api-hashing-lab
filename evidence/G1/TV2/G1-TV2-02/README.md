@@ -4,6 +4,8 @@ Nội dung: Phân tích B1/B2 bằng Ghidra.
 
 Trạng thái: **Bị chặn ở phần cụ thể**.
 
+Tài liệu của task: `tv2/G1-TV2-02/`.
+
 Build dùng chung: `20261118-094956`. Rule lock hiện tại: `configs/tv2/locks/rule-lock-1.0.1.json`.
 
 ## Đã có
@@ -17,4 +19,4 @@ Build dùng chung: `20261118-094956`. Rule lock hiện tại: `configs/tv2/locks
 
 - Ảnh imports, strings và lời gọi từ GUI Ghidra.
 
-Chi tiết từng bước ở `docs/tv2/TASK-TRACKER.md`.
+Chi tiết từng bước ở `tv2/TASK-TRACKER.md`.

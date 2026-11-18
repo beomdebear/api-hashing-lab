@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import csv
 import json
+import os
+import re
 import shutil
 import struct
 import subprocess
@@ -484,7 +486,7 @@ def tv1_review(data):
             "## Phạm vi chưa kiểm", "",
             "- Không chạy các binary, nên chưa kiểm hành vi runtime, địa chỉ forwarded export hay collision trên DLL thật.",
             "- Chưa đối chiếu với collector của TV3."]
-    write("docs/tv2/tv1-review.md", "\n".join(text))
+    write("tv2/G3-TV2-03/tv1-review.md", "\n".join(text))
 
 
 def static_report(data):
@@ -499,6 +501,7 @@ def static_report(data):
     run_test, run_dev, run_probe = data.runs["test"].name, data.runs["dev"].name, data.runs["probe"].name
     p1, b5 = data.manifest["P1"], data.manifest["TV2C-B5"]
     lock = load(CFG / "locks" / "rule-lock-1.0.1.json")
+    lock_commit = load(CFG / "locks" / "lock-commits.json")[VERSION]["commit"]
     text = f"""# Báo cáo phần static detector
 
 Trạng thái: **bản thảo**. Thiếu ảnh GUI Ghidra và số liệu D1. Nhãn, split và các mẫu `TV2C-*` là đề xuất của TV2, chưa được nhóm duyệt.
@@ -509,7 +512,7 @@ Phát hiện tĩnh việc một chương trình PE32+ x64 tìm API bằng hash c
 
 ## 2. Cơ chế cần phát hiện
 
-Import sẵn để loader điền IAT. Resolve động theo tên gọi `GetProcAddress` với tên có trong chương trình. API hashing không cần giữ tên đích: chương trình duyệt tên export, hash từng tên, so với giá trị đích rồi dùng tên khớp. Xem [ghi chú PE](pe-notes.md) và [sơ đồ](images/pe-mechanism.png).
+Import sẵn để loader điền IAT. Resolve động theo tên gọi `GetProcAddress` với tên có trong chương trình. API hashing không cần giữ tên đích: chương trình duyệt tên export, hash từng tên, so với giá trị đích rồi dùng tên khớp. Xem [ghi chú PE](../G1-TV2-01/pe-notes.md) và [sơ đồ](../G1-TV2-01/images/pe-mechanism.png).
 
 ## 3. Phương pháp
 
@@ -521,16 +524,16 @@ Import sẵn để loader điền IAT. Resolve động theo tên gọi `GetProcA
 
 ## 4. Rule
 
-- **D0** ([chi tiết](d0-rule.md)): import `GetProcAddress`, có vòng giống hash, có lời gọi gián tiếp ngoài IAT. Rule chỉ xét đồng xuất hiện.
+- **D0** ([chi tiết](../G2-TV2-01/d0-rule.md)): import `GetProcAddress`, có vòng giống hash, có lời gọi gián tiếp ngoài IAT. Rule chỉ xét đồng xuất hiện.
 - **Static-only** (định nghĩa làm việc của TV2): cả năm quan hệ duyệt tên export, tên → hash, hash → so sánh, so sánh → chọn tên, tên → resolve phải được xác minh. Việc dùng con trỏ được báo cáo nhưng không bắt buộc, vì E1 resolve mà không gọi địa chỉ.
-- Danh sách đặc trưng ở [features.md](features.md). Lịch sử thay đổi ở [rule-changelog.md](rule-changelog.md).
+- Danh sách đặc trưng ở [features.md](../G2-TV2-03/features.md). Lịch sử thay đổi ở [rule-changelog.md](../G2-TV2-03/rule-changelog.md).
 
 ## 5. Dữ liệu và quy trình
 
 - Build `{BUILD}`, MSVC `/Od /MD`, cây nguồn có thay đổi chưa commit. Provenance ở `evidence/TV2-shared/build/{BUILD}/build-manifest.json`.
 - Tập phát triển: B1, B2, P1, TV2C-B3, TV2C-B4. Tập test: P2–P5, E1, E2, TV2C-B5, TV2C-B6. Năm mẫu probe chỉ dùng để quan sát compiler.
 - Rule được khóa trước khi chạy test. Lock hiện tại `{lock['lock_version']}`, tạo lúc `{lock['created_at']}`, gồm checksum code, config, schema và manifest.
-- Commit khóa **chưa có**: {lock['git_commit_lock']['reason']}.
+- Commit `{lock_commit[:7]}` do người dùng tạo chứa đúng các tệp của lock này; đã đối chiếu từng SHA-256.
 
 ## 6. Kết quả thực đo
 
@@ -546,7 +549,7 @@ Lý do và vị trí bằng chứng từng mẫu nằm trong `{data.rel_path(dat
 
 ## 7. Bảng D0/D1
 
-**Chưa lập được.** Repository chưa có D1 hay kết quả D1, nên không có số liệu để so. Bảng trên so D0 với static-only và không thay thế bảng D0/D1. Đầu vào đề xuất cho D1 ở [D1-HANDOFF.md](D1-HANDOFF.md).
+**Chưa lập được.** Repository chưa có D1 hay kết quả D1, nên không có số liệu để so. Bảng trên so D0 với static-only và không thay thế bảng D0/D1. Đầu vào đề xuất cho D1 ở [D1-HANDOFF.md](../G2-TV2-03/D1-HANDOFF.md).
 
 ## 8. Ví dụ demo theo kết quả thực đo
 
@@ -575,7 +578,33 @@ D0 không bị chỉnh để bỏ sót mẫu nào. Trên tập test đề xuất
 
 Xem [README-TV2.md](../../README-TV2.md).
 """
-    write("docs/tv2/static-detector-report.md", text)
+    write("tv2/G3-TV2-02/static-detector-report.md", text)
+
+
+def link_to(path, base):
+    return os.path.relpath(ROOT / path, ROOT / base).replace("\\", "/")
+
+
+def linkify(item, base):
+    pattern = r"`((?:tv2|evidence|configs|schemas|detectors|scripts|samples|docs)/[^`]*)`"
+    return re.sub(pattern, lambda m: f"[`{m.group(1)}`]({link_to(m.group(1).rstrip('/'), base)})", item)
+
+
+def task_folder(task):
+    base = f"tv2/{task['id']}"
+    folder = ROOT / base
+    local = sorted(p.relative_to(folder).as_posix() for p in folder.rglob("*") if p.is_file() and p.name != "README.md")
+    related = [item for item in task["have"] if not item.startswith(f"`{base}/")]
+    steps = [(s["id"], s["what"], s["status"], s["missing"]) for s in task["steps"]]
+    body = [f"# {task['id']} — {task['title']}", "", f"Trạng thái: **{task['status']}**.", "",
+            "## Tài liệu trong thư mục này", "",
+            *([f"- [{name}]({name})" for name in local] or ["- Task này không có tài liệu riêng. Sản phẩm nằm ở phần dưới."]), "",
+            "## Minh chứng và sản phẩm liên quan", "",
+            f"- Thư mục minh chứng: [`{task['folder']}/`]({link_to(task['folder'], base)})",
+            *[f"- {linkify(item, base)}" for item in related], "",
+            "## Còn thiếu", "", *[f"- {linkify(item, base)}" for item in task["missing"]], "",
+            "## Các bước", "", linkify(table(["Bước", "Việc", "Trạng thái", "Còn thiếu"], steps), base)]
+    write(f"{base}/README.md", "\n".join(body))
 
 
 def tracker_and_readmes():
@@ -590,22 +619,32 @@ def tracker_and_readmes():
                                                   ("Kiểm tra đã chạy", s["checks"]), ("Minh chứng", s["evidence"]), ("Còn thiếu", s["missing"]), ("Phụ thuộc", s["depends"]),
                                                   ("Việc tiếp theo", s["next"]), ("Tiêu chí xong", s["done_when"]), ("Cập nhật", now)]), ""]
         body = [f"# Minh chứng {task['id']}", "", f"Nội dung: {task['title']}.", "", f"Trạng thái: **{task['status']}**.", "",
+                f"Tài liệu của task: `tv2/{task['id']}/`.", "",
                 f"Build dùng chung: `{BUILD}`. Rule lock hiện tại: `configs/tv2/locks/rule-lock-{VERSION}.json`.", "", "## Đã có", "",
                 *[f"- {item}" for item in task["have"]], "", "## Còn thiếu", "", *[f"- {item}" for item in task["missing"]], "",
-                "Chi tiết từng bước ở `docs/tv2/TASK-TRACKER.md`."]
+                "Chi tiết từng bước ở `tv2/TASK-TRACKER.md`."]
         write(f"{task['folder']}/README.md", "\n".join(body))
-    write("docs/tv2/TASK-TRACKER.md", "\n".join(lines))
+        task_folder(task)
+    write("tv2/TASK-TRACKER.md", "\n".join(lines))
+    index = ["# Tài liệu TV2", "", "Mỗi task có một thư mục riêng. Minh chứng gốc vẫn nằm trong `evidence/G*/TV2/`, và README của từng task có liên kết tới đó.", "",
+             table(["Task", "Nội dung", "Trạng thái", "Minh chứng"],
+                   [(f"[{t['id']}]({t['id']}/README.md)", t["title"], t["status"], f"[mở]({link_to(t['folder'], 'tv2')})") for t in TASKS]), "",
+             "## Tài liệu chung", "", "- [Đặc tả thực thi](EXECUTION-SPEC.md)", "- [Theo dõi chi tiết](TASK-TRACKER.md)",
+             "- [Việc cần người dùng thực hiện](HUONG-DAN-CHUP-ANH.md)", "- [Bàn giao và điểm bắt đầu phiên mới](ban-giao/START-HERE.md)",
+             "- [Hướng dẫn tái lập](../README-TV2.md)"]
+    write("tv2/README.md", "\n".join(index))
 
 
 def main():
     data = Data()
-    b1_b2(data)
-    p1_chain(data)
-    d0_dev(data)
-    controls(data)
-    missing_examples(data)
-    features_summary(data)
-    analysis(data)
+    if "--docs-only" not in sys.argv:
+        b1_b2(data)
+        p1_chain(data)
+        d0_dev(data)
+        controls(data)
+        missing_examples(data)
+        features_summary(data)
+        analysis(data)
     tv1_review(data)
     static_report(data)
     tracker_and_readmes()

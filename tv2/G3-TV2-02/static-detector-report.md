@@ -8,7 +8,7 @@ Phát hiện tĩnh việc một chương trình PE32+ x64 tìm API bằng hash c
 
 ## 2. Cơ chế cần phát hiện
 
-Import sẵn để loader điền IAT. Resolve động theo tên gọi `GetProcAddress` với tên có trong chương trình. API hashing không cần giữ tên đích: chương trình duyệt tên export, hash từng tên, so với giá trị đích rồi dùng tên khớp. Xem [ghi chú PE](pe-notes.md) và [sơ đồ](images/pe-mechanism.png).
+Import sẵn để loader điền IAT. Resolve động theo tên gọi `GetProcAddress` với tên có trong chương trình. API hashing không cần giữ tên đích: chương trình duyệt tên export, hash từng tên, so với giá trị đích rồi dùng tên khớp. Xem [ghi chú PE](../G1-TV2-01/pe-notes.md) và [sơ đồ](../G1-TV2-01/images/pe-mechanism.png).
 
 ## 3. Phương pháp
 
@@ -20,16 +20,16 @@ Import sẵn để loader điền IAT. Resolve động theo tên gọi `GetProcA
 
 ## 4. Rule
 
-- **D0** ([chi tiết](d0-rule.md)): import `GetProcAddress`, có vòng giống hash, có lời gọi gián tiếp ngoài IAT. Rule chỉ xét đồng xuất hiện.
+- **D0** ([chi tiết](../G2-TV2-01/d0-rule.md)): import `GetProcAddress`, có vòng giống hash, có lời gọi gián tiếp ngoài IAT. Rule chỉ xét đồng xuất hiện.
 - **Static-only** (định nghĩa làm việc của TV2): cả năm quan hệ duyệt tên export, tên → hash, hash → so sánh, so sánh → chọn tên, tên → resolve phải được xác minh. Việc dùng con trỏ được báo cáo nhưng không bắt buộc, vì E1 resolve mà không gọi địa chỉ.
-- Danh sách đặc trưng ở [features.md](features.md). Lịch sử thay đổi ở [rule-changelog.md](rule-changelog.md).
+- Danh sách đặc trưng ở [features.md](../G2-TV2-03/features.md). Lịch sử thay đổi ở [rule-changelog.md](../G2-TV2-03/rule-changelog.md).
 
 ## 5. Dữ liệu và quy trình
 
 - Build `20261118-094956`, MSVC `/Od /MD`, cây nguồn có thay đổi chưa commit. Provenance ở `evidence/TV2-shared/build/20261118-094956/build-manifest.json`.
 - Tập phát triển: B1, B2, P1, TV2C-B3, TV2C-B4. Tập test: P2–P5, E1, E2, TV2C-B5, TV2C-B6. Năm mẫu probe chỉ dùng để quan sát compiler.
 - Rule được khóa trước khi chạy test. Lock hiện tại `1.0.1`, tạo lúc `2026-11-18T10:13:26+07:00`, gồm checksum code, config, schema và manifest.
-- Commit khóa **chưa có**: the index has unmerged paths.
+- Commit `1befa67` do người dùng tạo chứa đúng các tệp của lock này; đã đối chiếu từng SHA-256.
 
 ## 6. Kết quả thực đo
 
@@ -59,7 +59,7 @@ Lý do và vị trí bằng chứng từng mẫu nằm trong `evidence/G3/TV2/G3
 
 ## 7. Bảng D0/D1
 
-**Chưa lập được.** Repository chưa có D1 hay kết quả D1, nên không có số liệu để so. Bảng trên so D0 với static-only và không thay thế bảng D0/D1. Đầu vào đề xuất cho D1 ở [D1-HANDOFF.md](D1-HANDOFF.md).
+**Chưa lập được.** Repository chưa có D1 hay kết quả D1, nên không có số liệu để so. Bảng trên so D0 với static-only và không thay thế bảng D0/D1. Đầu vào đề xuất cho D1 ở [D1-HANDOFF.md](../G2-TV2-03/D1-HANDOFF.md).
 
 ## 8. Ví dụ demo theo kết quả thực đo
 

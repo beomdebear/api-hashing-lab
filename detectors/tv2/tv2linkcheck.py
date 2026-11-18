@@ -2,8 +2,10 @@
 """Final TV2 consistency check: links, referenced files, versions and run identity."""
 from __future__ import annotations
 
+import hashlib
 import json
 import re
+import subprocess
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -18,15 +20,21 @@ VERSION = "1.0.1"
 LOCK = ROOT / f"configs/tv2/locks/rule-lock-{VERSION}.json"
 LINK = re.compile(r"!?\[[^\]]*\]\(([^)\s]+)\)")
 CODE = re.compile(r"`([^`\n]+)`")
-PREFIXES = ("docs/", "evidence/", "configs/", "schemas/", "detectors/", "scripts/", "tests/", "samples/", "ban-giao/", "prompt-claude/")
+PREFIXES = ("tv2/", "docs/", "evidence/", "configs/", "schemas/", "detectors/", "scripts/", "tests/", "samples/", "ban-giao/", "prompt-claude/")
 # These images are produced by the user-run capture step and are tracked as missing.
 PENDING_IMAGE = re.compile(r"evidence/G\d/TV2/G\d-TV2-\d\d/images/?")
 RELATIVE_EVIDENCE = re.compile(r"^(ghidra-headless|runs|d1-input-dev)/?$")
+# Named on purpose when documents explain the move. Files under it are still reported.
+REMOVED_DIRS = {"docs/tv2"}
 
 
 def documents():
     names = [ROOT / "README-TV2.md", ROOT / "CLAUDE.md"]
-    names += sorted((ROOT / "docs/tv2").glob("*.md")) + sorted((ROOT / "ban-giao").glob("*.md"))
+    names += sorted(p for p in (ROOT / "tv2").rglob("*.md") if "ban-giao" not in p.parts)
+    # Older dated reports are history and may name paths that were later moved.
+    start = ROOT / "tv2/ban-giao/START-HERE.md"
+    latest = re.search(r"\]\((\d\d-\d\d-\d{4}_[^)]+\.md)\)", start.read_text(encoding="utf-8"))
+    names += [start, start.parent / latest.group(1)]
     for group in ("G1", "G2", "G3"):
         for path in sorted((ROOT / "evidence" / group / "TV2").rglob("*.md")):
             if "ghidra-headless" not in path.parts:
@@ -48,6 +56,8 @@ def check_links():
         for value in CODE.findall(text):
             value = value.strip().rstrip("/")
             value = re.sub(r":\d+$", "", value)
+            if value in REMOVED_DIRS:
+                continue
             if not value.startswith(PREFIXES) or re.search(r"[<>*…\s]|DD-MM", value) or PENDING_IMAGE.match(value):
                 continue
             paths += 1
@@ -68,7 +78,7 @@ def check_versions():
     configs = {"d0": "d0.json", "static-only": "static-only.json"}
     digests = {k: tv2features.canonical_digest(json.loads((ROOT / "configs/tv2" / v).read_text(encoding="utf-8"))) for k, v in configs.items()}
     code = tv2features.code_digest()
-    report = (ROOT / "docs/tv2/static-detector-report.md").read_text(encoding="utf-8")
+    report = (ROOT / "tv2/G3-TV2-02/static-detector-report.md").read_text(encoding="utf-8")
     # The report cites the newest run of each split; older runs stay as history.
     latest = [sorted((ROOT / base).glob(f"R-*-{split}-{VERSION}"))[-1] for base, split in (
         ("evidence/G2/TV2/G2-TV2-01/runs", "dev"), ("evidence/G3/TV2/G3-TV2-01/runs", "test"),
@@ -91,8 +101,20 @@ def check_versions():
     return runs, problems, lock
 
 
+def commit_status(lock):
+    """Returns the recorded commit and the locked files that differ inside it."""
+    record = json.loads((ROOT / "configs/tv2/locks/lock-commits.json").read_text(encoding="utf-8"))[VERSION]
+    different = []
+    for name, digest in lock["files_sha256"].items():
+        shown = subprocess.run(["git", "show", f"{record['commit']}:{name}"], cwd=ROOT, capture_output=True)
+        actual = hashlib.sha256(shown.stdout.replace(b"\r\n", b"\n")).hexdigest().upper()
+        if shown.returncode or actual != digest:
+            different.append(name)
+    return record["commit"], different
+
+
 def pending_images():
-    source = (ROOT / "docs/tv2/HUONG-DAN-CHUP-ANH.md").read_text(encoding="utf-8")
+    source = (ROOT / "tv2/HUONG-DAN-CHUP-ANH.md").read_text(encoding="utf-8")
     missing, present = [], []
     for folder, cell in re.findall(r"\| `(evidence/[^`]+/images/)` \| ([^|]+) \|", source):
         for name in re.findall(r"`([^`]+\.png)`", cell):
@@ -104,9 +126,11 @@ def main():
     docs, links, paths, link_problems = check_links()
     runs, version_problems, lock = check_versions()
     present, missing = pending_images()
+    locked_commit, commit_diff = commit_status(lock)
+    version_problems += [f"lock commit differs: {name}" for name in commit_diff]
     problems = link_problems + version_problems
     now = datetime.now(timezone(timedelta(hours=7))).isoformat(timespec="seconds")
-    commit = "có" if lock["git_commit_lock"]["created"] else f"chưa có ({lock['git_commit_lock']['reason']})"
+    commit = f"`{locked_commit[:7]}` chứa đúng các tệp của lock" if not commit_diff else "commit không khớp lock"
     rows = [("Tài liệu đã quét", docs), ("Liên kết nội bộ đã kiểm", links), ("Đường dẫn trong mã đã kiểm", paths),
             ("Run phiên bản hiện tại", ", ".join(f"`{r}`" for r in runs)), ("Lock hiện tại", f"`{LOCK.relative_to(ROOT).as_posix()}`"),
             ("Commit khóa", commit), ("Ảnh GUI đã có", len(present)), ("Ảnh GUI còn thiếu", len(missing)), ("Lỗi liên kết hoặc phiên bản", len(problems))]
@@ -117,7 +141,7 @@ def main():
             f"- [{'x' if not version_problems else ' '}] Mọi run hiện tại dùng đúng code, config và được báo cáo nêu.",
             f"- [{'x' if not link_problems else ' '}] Liên kết và đường dẫn trong tài liệu TV2 tồn tại.",
             f"- [{'x' if not missing else ' '}] Đủ ảnh GUI theo danh sách chụp.",
-            f"- [{'x' if lock['git_commit_lock']['created'] else ' '}] Có commit khóa.",
+            f"- [{'x' if not commit_diff else ' '}] Có commit chứa đúng các tệp của lock.",
             "- [ ] TV1 phản hồi review.", "- [ ] TV4 xác nhận mẫu đối chứng, nhãn và split.", "- [ ] Có bảng D0/D1 thực đo.", "",
             "## Lỗi đã sửa trong phiên", "",
             "- Extractor 1.0.0 dừng vì số dịch âm; sửa ở 1.0.1 và thêm test.",

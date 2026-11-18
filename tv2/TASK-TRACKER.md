@@ -1,6 +1,6 @@
 # Theo dõi task TV2
 
-Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức trong prompt. Tệp được sinh từ `detectors/tv2/tv2tasks.py`.
+Cập nhật: 2026-11-18T10:50:06+07:00. Trạng thái dùng đúng sáu mức trong prompt. Tệp được sinh từ `detectors/tv2/tv2tasks.py`.
 
 | Task | Nội dung | Trạng thái | Còn thiếu |
 |---|---|---|---|
@@ -9,10 +9,10 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | G1-TV2-03 | Chuỗi bằng chứng API hashing trong P1 | Bị chặn ở phần cụ thể | Ảnh decompile có chú thích từ GUI Ghidra. |
 | G2-TV2-01 | Baseline D0 | Bị chặn ở phần cụ thể | Ảnh minh họa match từ GUI Ghidra. |
 | G2-TV2-02 | Đối chứng B3–B6 | Bị chặn ở phần cụ thể | Ảnh Ghidra từ GUI. TV4 chưa xác nhận TV2C-B3..B6 là B3–B6 chính thức. |
-| G2-TV2-03 | Static features, bàn giao D1 và khóa rule | Bị chặn ở phần cụ thể | Commit khóa: bị chặn vì Git còn đường dẫn unmerged của TV3. Giao diện D1 thật và lịch mốc tuần 7 của nhóm chưa có. |
+| G2-TV2-03 | Static features, bàn giao D1 và khóa rule | Bị chặn ở phần cụ thể | Giao diện D1 thật và lịch mốc tuần 7 của nhóm chưa có. |
 | G3-TV2-01 | Đánh giá và phân tích FP/FN | Bị chặn ở phần cụ thể | Ảnh Ghidra của FP từ GUI. TV4 chưa duyệt nhãn, split và phần phân tích chung. |
 | G3-TV2-02 | Báo cáo static detector | Bị chặn ở phần cụ thể | Bảng D0/D1 thực đo: D1 chưa có. Ảnh chú thích từ GUI Ghidra. |
-| G3-TV2-03 | Kiểm tra cuối và review PoC TV1 | Đã kiểm tra, còn thiếu minh chứng nghiệm thu | TV1 chưa phản hồi các điểm review. Cần chạy lại kiểm tra cuối sau khi có ảnh và commit khóa. |
+| G3-TV2-03 | Kiểm tra cuối và review PoC TV1 | Đã kiểm tra, còn thiếu minh chứng nghiệm thu | TV1 chưa phản hồi các điểm review. Cần chạy lại kiểm tra cuối sau khi có ảnh. |
 
 ## G1-TV2-01 — Cơ chế PE, imports, exports và địa chỉ hàm
 
@@ -23,14 +23,14 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Trạng thái | Hoàn thành và đã kiểm chứng |
 | Đầu vào | Mã máy B1/B2/P1 |
 | Vị trí thao tác | `scripts/tv2-make-diagram.py` |
-| Đầu ra | `docs/tv2/images/pe-mechanism.png` |
+| Đầu ra | `tv2/G1-TV2-01/images/pe-mechanism.png` |
 | Kiểm tra đã chạy | Đã mở ảnh kiểm tra bố cục và địa chỉ |
 | Minh chứng | Ảnh sơ đồ |
 | Còn thiếu | Không |
 | Phụ thuộc | Không |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Có sơ đồ PE và ba luồng |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G1-TV2-01.02 — Viết ghi chú PE
 
@@ -38,15 +38,15 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 |---|---|
 | Trạng thái | Hoàn thành và đã kiểm chứng |
 | Đầu vào | PE format, export Ghidra |
-| Vị trí thao tác | `docs/tv2/pe-notes.md` |
+| Vị trí thao tác | `tv2/G1-TV2-01/pe-notes.md` |
 | Đầu ra | Ghi chú |
 | Kiểm tra đã chạy | Link checker |
-| Minh chứng | `docs/tv2/pe-notes.md` |
+| Minh chứng | `tv2/G1-TV2-01/pe-notes.md` |
 | Còn thiếu | Không |
 | Phụ thuộc | Không |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Giải thích được import sẵn khác resolve lúc chạy |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G1-TV2-01.03 — Lập static-checklist
 
@@ -54,22 +54,22 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 |---|---|
 | Trạng thái | Hoàn thành và đã kiểm chứng |
 | Đầu vào | Kết quả phân tích |
-| Vị trí thao tác | `docs/tv2/static-checklist.md` |
+| Vị trí thao tác | `tv2/G1-TV2-01/static-checklist.md` |
 | Đầu ra | Checklist |
 | Kiểm tra đã chạy | Link checker |
-| Minh chứng | `docs/tv2/static-checklist.md` |
+| Minh chứng | `tv2/G1-TV2-01/static-checklist.md` |
 | Còn thiếu | Không |
 | Phụ thuộc | Không |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Có dấu hiệu, vị trí, cách kiểm và lỗi hiểu nhầm |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G1-TV2-01.04 — Thống nhất dấu hiệu với TV1
 
 | Mục | Nội dung |
 |---|---|
 | Trạng thái | Bị chặn ở phần cụ thể |
-| Đầu vào | `docs/tv2/static-checklist.md` |
+| Đầu vào | `tv2/G1-TV2-01/static-checklist.md` |
 | Vị trí thao tác | Trao đổi nhóm |
 | Đầu ra | Xác nhận của TV1 |
 | Kiểm tra đã chạy | Chưa có |
@@ -78,7 +78,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | TV1 |
 | Việc tiếp theo | Gửi checklist cho TV1 |
 | Tiêu chí xong | Có ghi nhận TV1 đồng ý hoặc yêu cầu sửa |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ## G1-TV2-02 — Phân tích B1/B2 bằng Ghidra
 
@@ -96,7 +96,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | MSVC |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Có SHA-256 và provenance |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G1-TV2-02.02 — Phân tích headless
 
@@ -112,7 +112,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | Ghidra 12.2, JDK 25 |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Có imports, strings, calls, decompile |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G1-TV2-02.03 — Lập bảng B1/B2
 
@@ -128,7 +128,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | G1-TV2-02.02 |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Chỉ ra B2 resolve theo tên, không hash |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G1-TV2-02.04 — Chụp ảnh GUI
 
@@ -140,11 +140,11 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Đầu ra | `evidence/G1/TV2/G1-TV2-02/images/` |
 | Kiểm tra đã chạy | Chưa chạy |
 | Minh chứng | Chưa có |
-| Còn thiếu | Ảnh GUI Ghidra: cần người dùng chạy `scripts/tv2-capture-gui.ps1` (xem `docs/tv2/HUONG-DAN-CHUP-ANH.md`) |
+| Còn thiếu | Ảnh GUI Ghidra: cần người dùng chạy `scripts/tv2-capture-gui.ps1` (xem `tv2/HUONG-DAN-CHUP-ANH.md`) |
 | Phụ thuộc | Người dùng |
 | Việc tiếp theo | Chạy script chụp ảnh |
 | Tiêu chí xong | Có 6 ảnh B1/B2 từ Ghidra |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ## G1-TV2-03 — Chuỗi bằng chứng API hashing trong P1
 
@@ -162,7 +162,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | G1-TV2-02.01 |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Đủ export → hash → so sánh → resolve → dùng con trỏ |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G1-TV2-03.02 — Đối chiếu bằng Ghidra
 
@@ -178,7 +178,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | G1-TV2-03.01 |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Mọi lệnh chuỗi có trong Ghidra |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G1-TV2-03.03 — Chụp ảnh decompile chú thích
 
@@ -190,11 +190,11 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Đầu ra | `evidence/G1/TV2/G1-TV2-03/images/` |
 | Kiểm tra đã chạy | Chưa chạy |
 | Minh chứng | Bản văn bản headless |
-| Còn thiếu | Ảnh GUI Ghidra: cần người dùng chạy `scripts/tv2-capture-gui.ps1` (xem `docs/tv2/HUONG-DAN-CHUP-ANH.md`) |
+| Còn thiếu | Ảnh GUI Ghidra: cần người dùng chạy `scripts/tv2-capture-gui.ps1` (xem `tv2/HUONG-DAN-CHUP-ANH.md`) |
 | Phụ thuộc | Người dùng |
 | Việc tiếp theo | Chạy script chụp ảnh |
 | Tiêu chí xong | Có 4 ảnh P1 |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ## G2-TV2-01 — Baseline D0
 
@@ -212,7 +212,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | Capstone |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Chạy được trên binary thật |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G2-TV2-01.02 — Chạy tập phát triển
 
@@ -228,7 +228,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | Rule lock |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Có kết luận và vị trí bằng chứng từng mẫu |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G2-TV2-01.03 — Chụp ảnh match
 
@@ -240,11 +240,11 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Đầu ra | `evidence/G2/TV2/G2-TV2-01/images/` |
 | Kiểm tra đã chạy | Chưa chạy |
 | Minh chứng | Chưa có |
-| Còn thiếu | Ảnh GUI Ghidra: cần người dùng chạy `scripts/tv2-capture-gui.ps1` (xem `docs/tv2/HUONG-DAN-CHUP-ANH.md`) |
+| Còn thiếu | Ảnh GUI Ghidra: cần người dùng chạy `scripts/tv2-capture-gui.ps1` (xem `tv2/HUONG-DAN-CHUP-ANH.md`) |
 | Phụ thuộc | Người dùng |
 | Việc tiếp theo | Chạy script chụp ảnh |
 | Tiêu chí xong | Có 3 ảnh D0-C1, C2, C3 |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ## G2-TV2-02 — Đối chứng B3–B6
 
@@ -262,7 +262,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | MSVC |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Đúng điều kiện B3/B6 và B4/B5 |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G2-TV2-02.02 — Phân tích bằng Ghidra và D0
 
@@ -278,7 +278,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | G2-TV2-01 |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Có bảng dấu hiệu và FP/FN |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G2-TV2-02.03 — Chụp ảnh Ghidra
 
@@ -290,11 +290,11 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Đầu ra | `evidence/G2/TV2/G2-TV2-02/images/` |
 | Kiểm tra đã chạy | Chưa chạy |
 | Minh chứng | Chưa có |
-| Còn thiếu | Ảnh GUI Ghidra: cần người dùng chạy `scripts/tv2-capture-gui.ps1` (xem `docs/tv2/HUONG-DAN-CHUP-ANH.md`) |
+| Còn thiếu | Ảnh GUI Ghidra: cần người dùng chạy `scripts/tv2-capture-gui.ps1` (xem `tv2/HUONG-DAN-CHUP-ANH.md`) |
 | Phụ thuộc | Người dùng |
 | Việc tiếp theo | Chạy script chụp ảnh |
 | Tiêu chí xong | Có ảnh B3, B4, B6 |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G2-TV2-02.04 — TV4 xác nhận mẫu
 
@@ -310,7 +310,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | TV4 |
 | Việc tiếp theo | Gửi gói mẫu cho TV4 |
 | Tiêu chí xong | TV4 chấp nhận hoặc yêu cầu sửa |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ## G2-TV2-03 — Static features, bàn giao D1 và khóa rule
 
@@ -328,7 +328,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | G2-TV2-01 |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Mỗi đặc trưng có kiểu, trạng thái, bằng chứng |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G2-TV2-03.02 — Ví dụ thiếu bằng chứng
 
@@ -344,7 +344,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | G2-TV2-03.01 |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Có ví dụ lỗi, không hỗ trợ, thiếu quan hệ |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G2-TV2-03.03 — Adapter đề xuất cho D1
 
@@ -360,7 +360,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | Nhóm |
 | Việc tiếp theo | Thống nhất giao diện |
 | Tiêu chí xong | Có bản ghi hợp lệ theo schema đề xuất |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G2-TV2-03.04 — Khóa rule bằng checksum
 
@@ -376,23 +376,23 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | Không |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Lock kiểm tra được |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G2-TV2-03.05 — Commit khóa
 
 | Mục | Nội dung |
 |---|---|
-| Trạng thái | Bị chặn ở phần cụ thể |
+| Trạng thái | Hoàn thành và đã kiểm chứng |
 | Đầu vào | Lock 1.0.1 |
 | Vị trí thao tác | Git |
-| Đầu ra | Commit |
-| Kiểm tra đã chạy | `git diff --diff-filter=U` còn 1 tệp |
-| Minh chứng | Lock ghi rõ chưa có commit |
-| Còn thiếu | Xử lý xung đột TV3, người dùng cho phép commit |
-| Phụ thuộc | Người dùng, TV3 |
-| Việc tiếp theo | Làm theo `docs/tv2/HUONG-DAN-CHUP-ANH.md` mục 2 |
+| Đầu ra | Commit `1befa67` |
+| Kiểm tra đã chạy | So SHA-256 từng tệp trong commit với lock |
+| Minh chứng | `configs/tv2/locks/lock-commits.json` |
+| Còn thiếu | Không |
+| Phụ thuộc | Không |
+| Việc tiếp theo | Không |
 | Tiêu chí xong | Có commit chứa đúng phiên bản lock |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ## G3-TV2-01 — Đánh giá và phân tích FP/FN
 
@@ -410,7 +410,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | G2-TV2-03.04 |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Có prediction gốc từng mẫu |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G3-TV2-01.02 — Phân tích lỗi
 
@@ -426,7 +426,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | G3-TV2-01.01 |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Có vị trí và lý do từng lỗi |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G3-TV2-01.03 — Chụp ảnh FP
 
@@ -438,11 +438,11 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Đầu ra | `evidence/G3/TV2/G3-TV2-01/images/` |
 | Kiểm tra đã chạy | Chưa chạy |
 | Minh chứng | Chưa có |
-| Còn thiếu | Ảnh GUI Ghidra: cần người dùng chạy `scripts/tv2-capture-gui.ps1` (xem `docs/tv2/HUONG-DAN-CHUP-ANH.md`) |
+| Còn thiếu | Ảnh GUI Ghidra: cần người dùng chạy `scripts/tv2-capture-gui.ps1` (xem `tv2/HUONG-DAN-CHUP-ANH.md`) |
 | Phụ thuộc | Người dùng |
 | Việc tiếp theo | Chạy script chụp ảnh |
 | Tiêu chí xong | Có 4 ảnh FP của TV2C-B5 |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G3-TV2-01.04 — Đối chiếu cùng TV4
 
@@ -458,7 +458,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | TV4 |
 | Việc tiếp theo | Gửi bảng lỗi cho TV4 |
 | Tiêu chí xong | Có kết quả theo split chính thức |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ## G3-TV2-02 — Báo cáo static detector
 
@@ -469,14 +469,14 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Trạng thái | Hoàn thành và đã kiểm chứng |
 | Đầu vào | Run 1.0.1 |
 | Vị trí thao tác | `detectors/tv2/tv2report.py` |
-| Đầu ra | `docs/tv2/static-detector-report.md` |
+| Đầu ra | `tv2/G3-TV2-02/static-detector-report.md` |
 | Kiểm tra đã chạy | Link checker, đối chiếu run |
 | Minh chứng | Báo cáo |
 | Còn thiếu | Không |
 | Phụ thuộc | G3-TV2-01 |
 | Việc tiếp theo | Không |
 | Tiêu chí xong | Có cơ chế, rule, dữ liệu, kết quả, giới hạn |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G3-TV2-02.02 — Bảng D0/D1
 
@@ -492,7 +492,7 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | Nhóm |
 | Việc tiếp theo | Chạy lại generator khi có D1 |
 | Tiêu chí xong | Có bảng D0/D1 cùng tập mẫu |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ## G3-TV2-03 — Kiểm tra cuối và review PoC TV1
 
@@ -502,15 +502,15 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 |---|---|
 | Trạng thái | Hoàn thành và đã kiểm chứng |
 | Đầu vào | Source, docs TV1, Ghidra |
-| Vị trí thao tác | `docs/tv2/tv1-review.md` |
+| Vị trí thao tác | `tv2/G3-TV2-03/tv1-review.md` |
 | Đầu ra | Checklist review |
 | Kiểm tra đã chạy | Đối chiếu lệnh trong binary |
-| Minh chứng | `docs/tv2/tv1-review.md` |
+| Minh chứng | `tv2/G3-TV2-03/tv1-review.md` |
 | Còn thiếu | TV1 chưa phản hồi |
 | Phụ thuộc | TV1 |
 | Việc tiếp theo | Gửi cho TV1 |
 | Tiêu chí xong | Mỗi điểm có bằng chứng |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |
 
 ### G3-TV2-03.02 — Kiểm tra phiên bản và liên kết
 
@@ -526,4 +526,4 @@ Cập nhật: 2026-11-18T10:37:07+07:00. Trạng thái dùng đúng sáu mức t
 | Phụ thuộc | Các task trên |
 | Việc tiếp theo | Chạy lại khi có thay đổi |
 | Tiêu chí xong | Không thiếu file, cùng phiên bản |
-| Cập nhật | 2026-11-18T10:37:07+07:00 |
+| Cập nhật | 2026-11-18T10:50:06+07:00 |

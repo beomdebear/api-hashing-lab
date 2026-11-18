@@ -1,0 +1,7 @@
+{
+  "1.0.1": {
+    "commit": "1befa6723ffbeef0b8ec50ba0ac6a362668997c3",
+    "created_by": "repository user (commit message: Update task)",
+    "verified": "every file listed in rule-lock-1.0.1.json matches this commit by SHA-256"
+  }
+}
