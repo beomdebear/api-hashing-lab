@@ -12,14 +12,15 @@ runner chung của TV4. Những file tiện ích đều có tiền tố `tv1-`.
 
 Có 9 mẫu: B1, B2, P1, P2, P3, P4, P5, E1, E2. B3–B6 thuộc phần phối hợp TV2/TV4 và không có trong gói này.
 
-## Trạng thái xác minh
+## Trạng thái xác minh (cập nhật sau kiểm thử trên Windows VM)
 
-- Đã kiểm tra phép hash C với vector chuẩn và đối chiếu mã Python độc lập trong môi trường Linux.
-- Đã đối chiếu các hằng số hash được tạo cho P1–P5/E1/E2.
-- Chưa build bằng MSVC hoặc chạy trên Windows VM tại nơi tạo gói này.
-- Chưa xác minh imports/strings thực tế của binary, collision trên DLL của máy bạn hoặc collector.
-- Thực hiện đầy đủ kiểm tra trong hướng dẫn trước khi ghi nhận mẫu đạt yêu cầu.
-
+- Linux (2026-10-31): đã test vector/hash C/Python; `docs/TV1-VALIDATION.txt` phản ánh đúng phạm vi Linux lịch sử, không phải xác minh Windows.
+- Windows 10 x64 VM, MSVC x64: B1, B2, P1 đã build và chạy checker v2 thành công (mỗi mẫu 1 run), exit code 0, marker tồn tại và đúng nội dung. Chi tiết build ID, run ID và SHA trong `evidence/G1/TV1/G1-TV1-02/README.md` và `G1-TV1-03/README.md`.
+- Audit DJB2 trên Windows: 3 API đúng tên/địa chỉ, matches=1; exit 0. Manifest của **audit** xác nhận MSVC 19.51.36260.0, x64.
+- B1/B2 imports đã quan sát qua dumpbin theo bằng chứng terminal trước đó. Chưa xác minh strings đầy đủ, Windows full build/snapshot và compiler version riêng của từng build B1/B2/P1 trong lần cập nhật này.
+- `collector_status=not_collected`: **chưa có dynamic API trace độc lập**, TV3 sẽ thực hiện.
+- Binaries/manifest/log/marker gốc ở `artifacts/` (Git ignore); TV1 cần xác nhận còn file trên VM và đối chiếu nguồn commit tại thời điểm build.
+- TV3 nhận binary hoặc tự build theo `docs/TV1-TV3-HANDOFF.md`.
 Đây là bộ mã hỗ trợ triển khai. Minh chứng phải là kết quả bạn thực sự chạy; không dùng tài liệu này
 để thay thế ảnh, log hay kết quả đánh giá. Không tắt phần mềm bảo mật để ép mẫu chạy. Nếu bị chặn,
 ghi nhận lần chạy bị chặn để điều tra, không xem đó là kết quả detector của nhóm.
