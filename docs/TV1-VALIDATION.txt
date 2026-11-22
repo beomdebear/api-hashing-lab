@@ -1,0 +1,13 @@
+Validation performed in Linux on 2026-10-31
+
+test_c_matches_reference (__main__.HashTests.test_c_matches_reference) ... ok
+test_generated_targets (__main__.HashTests.test_generated_targets) ... ok
+test_standard_vectors (__main__.HashTests.test_standard_vectors) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.235s
+
+OK
+
+NOT performed: MSVC build, Windows runtime, PowerShell execution, real DLL collision audit, import/string inspection.
+These require the Windows VM steps in TV1-HUONG-DAN.md.
