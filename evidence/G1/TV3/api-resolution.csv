@@ -1,0 +1,4 @@
+sample,pid,api,returned_address,module,module_base,rva,indirect_call_verified,notes
+B2,8560,CreateFileW,0x00007FF8253170B0,kernel32.dll,0x00007FF8252C0000,0x570B0,false,Resolution observed; indirect call verified separately in PID 8088
+B2,8560,WriteFile,0x00007FF825317580,kernel32.dll,0x00007FF8252C0000,0x57580,false,Indirect call not verified
+B2,8560,CloseHandle,0x00007FF825316E00,kernel32.dll,0x00007FF8252C0000,0x56E00,false,Indirect call not verified
